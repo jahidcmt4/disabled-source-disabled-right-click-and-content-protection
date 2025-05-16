@@ -113,3 +113,44 @@ if(!function_exists('jh_review_notice_callback')){
     add_action( 'wp_ajax_jh_review_notice_callback', 'jh_review_notice_callback' );
 
 }
+
+// Admin Notice for Support
+add_action( 'admin_notices', 'jh_support_notice' );  
+if(!function_exists('jh_support_notice')){
+    function jh_support_notice(){ 
+       $get_current_screen = get_current_screen();  
+       if( $get_current_screen->base == 'toplevel_page_disabled-source-disabled-right-click-and-content-protection'){
+       ?>
+           <div class="notice notice-info jh-support-notice-box is-dismissible"> 
+            <div class="jh-link-boxs">
+                    <div class="jh-link-box">
+                    <a href="http://wpassisthub.com/contact/" target="_blank">
+                        <img src="<?php echo JH_URL.'/includes'; ?>/admin/assets/images/jh-custom-service.png" alt="<?php esc_html_e("Custom Service","disabled-source-disabled-right-click-and-content-protection"); ?>">
+                        <h3><?php esc_html_e("More Services","disabled-source-disabled-right-click-and-content-protection"); ?></h3>
+                        <p><?php esc_html_e("We offer custom plugin development, plugin customization, website design, speed optimization, and full site customization.","disabled-source-disabled-right-click-and-content-protection"); ?></p>
+                        <span><?php esc_html_e("Contact Us","disabled-source-disabled-right-click-and-content-protection"); ?></span>
+                    </a>
+                    </div>
+                    <div class="jh-link-box">
+                    <a href="http://wpassisthub.com/contact/" target="_blank">
+                        <img src="<?php echo JH_URL.'/includes'; ?>/admin/assets/images/jh-mail.png" alt="<?php esc_html_e("Mail","disabled-source-disabled-right-click-and-content-protection"); ?>">
+                        <h3><?php esc_html_e("Mail Support","disabled-source-disabled-right-click-and-content-protection"); ?></h3>
+                        <p><?php esc_html_e("Get reliable mail support from our team—fast, friendly assistance for your WordPress issues right in your inbox.","disabled-source-disabled-right-click-and-content-protection"); ?></p>
+                        <span><?php esc_html_e("Contact Us","disabled-source-disabled-right-click-and-content-protection"); ?></span>
+                        
+                    </a>
+                    </div>
+                    <div class="jh-link-box">
+                    <a href="http://wpassisthub.com/" target="_blank">
+                        <img src="<?php echo JH_URL.'/includes'; ?>/admin/assets/images/jh-comment.png" alt="<?php esc_html_e("Live Chat","disabled-source-disabled-right-click-and-content-protection"); ?>">
+                        <h3><?php esc_html_e("Live Chat","disabled-source-disabled-right-click-and-content-protection"); ?></h3>
+                        <p><?php esc_html_e("Connect with us instantly through live chat for quick, real-time support and solutions to your WordPress questions and issues.","disabled-source-disabled-right-click-and-content-protection"); ?></p>
+                        <span><?php esc_html_e("Contact Us","disabled-source-disabled-right-click-and-content-protection"); ?></span>
+                    </a>
+                    </div>
+                </div>
+           </div>
+       <?php  
+       }
+    }
+}

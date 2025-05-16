@@ -30,14 +30,20 @@ if ( ! function_exists( 'disable_get_all_pages' ) ) {
 	}
 }
 
-
+// Post Type
+if ( ! function_exists( 'disable_get_all_post_type' ) ) {
+	function disable_get_all_post_type() {
+    $all_post_types =  get_option('jh_disable_post_types');
+    return $all_post_types;
+	}
+}
 
 if( class_exists( 'CSF' ) ) {
 
   $prefix = 'jh_disabled_option';
 
   CSF::createOptions( $prefix, array(
-    'framework_title'         =>   __( 'Disabled Settings <a style="text-decoration:none; background: #2271b1; padding: 5px 10px; display: inline-block;border-radius: 8px;color: #fff;font-size: 16px;" href="https://buymeacoffee.com/jahidcmt4" target="_blank"><i class="fa fa-coffee" aria-hidden="true"></i> Buy Me a Coffee</a>', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'framework_title'         =>   __( 'Disabled Settings', 'disabled-source-disabled-right-click-and-content-protection' ),
     'menu_title'              =>   __( 'Disabled Settings', 'disabled-source-disabled-right-click-and-content-protection' ),
     'menu_slug'               =>   'disabled-source-disabled-right-click-and-content-protection',
     'menu_icon'               =>   'dashicons-lock',
@@ -440,6 +446,22 @@ if( class_exists( 'CSF' ) ) {
         'title' => __( 'Disable By Roles', 'disabled-source-disabled-right-click-and-content-protection' ),
         'options' => function_exists( 'disable_get_all_author_roles' ) ? disable_get_all_author_roles() : '',
         'default' => 'customer'
+      ),
+    )
+  ) );
+
+   // Disable By Post Type
+   CSF::createSection( $prefix, array(
+    'title'  => __( 'Disable By Post Type', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'id'    => 'disable-post-type',
+        'type'  => 'select',
+        'title' => __( 'Disable By Post Type', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'options' => function_exists( 'disable_get_all_post_type' ) ? disable_get_all_post_type() : '',
+        'chosen'      => true,
+        'multiple'    => true,
+        'placeholder' => "If left empty, it will affect all post type.",
       ),
     )
   ) );

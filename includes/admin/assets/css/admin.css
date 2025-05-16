@@ -57,3 +57,75 @@
 .jh_admin_feature_notice .csf-notice-danger{
   background-color: #ffdddd !important;
 }
+.jh-support-notice-box {
+  margin-left: 0px;
+  border-left: 1px solid #c3c4c7;
+  padding-right: 0px !important;
+}
+.jh-support-notice-box .jh-link-boxs{
+  display: flex;
+  gap: 12px;
+}
+.jh-support-notice-box .jh-link-boxs .jh-link-box{
+  background-color: #fff;
+  border-radius:10px;
+  margin-bottom: 0;
+  width: calc(33% - 12px);
+}
+.jh-support-notice-box .jh-link-boxs .jh-link-box a{
+  display: block;
+  padding: 8px 8px 12px 8px;
+  text-decoration: none;
+  text-align: center;
+}
+.jh-support-notice-box .jh-link-boxs .jh-link-box a:focus{
+  outline: none;
+  box-shadow: none;
+}
+.jh-support-notice-box .jh-link-boxs .jh-link-box a img{
+  margin-bottom: 15px;
+}
+.jh-support-notice-box .jh-link-boxs .jh-link-box a h3{
+  font-size: 20px;
+  margin: 0;
+  color: #000;
+  display: block;
+  line-height: 24px;
+  margin-bottom: 15px;
+}
+.jh-support-notice-box .jh-link-boxs .jh-link-box a p{
+  font-size: 15px;
+  margin: 0;
+  color: #000;
+  display: block;
+  line-height: 24px;
+}
+.jh-support-notice-box .jh-link-boxs .jh-link-box a span{
+  margin-bottom: 0;
+  display: inline-block;
+  border: 2px solid #003c79;
+  border-radius: 6px;
+  padding: 9px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #003c79;
+  margin-top: 15px;
+  line-height: 1;
+  transition: .3s all ease;
+}
+.jh-support-notice-box .jh-link-boxs .jh-link-box a span:hover{
+  background-color: #003c79;
+  color: #fff;
+}
+
+/* Responsive */
+
+@media all and (max-width: 767px){
+  .jh-support-notice-box .jh-link-boxs{
+    flex-wrap: wrap;
+  }
+  .jh-support-notice-box .jh-link-boxs .jh-link-box {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
