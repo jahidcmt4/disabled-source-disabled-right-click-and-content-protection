@@ -30,14 +30,20 @@ if ( ! function_exists( 'disable_get_all_pages' ) ) {
 	}
 }
 
-
+// Post Type
+if ( ! function_exists( 'disable_get_all_post_type' ) ) {
+	function disable_get_all_post_type() {
+    $all_post_types =  get_option('jh_disable_post_types');
+    return $all_post_types;
+	}
+}
 
 if( class_exists( 'CSF' ) ) {
 
   $prefix = 'jh_disabled_option';
 
   CSF::createOptions( $prefix, array(
-    'framework_title'         =>   __( 'Disabled Settings <a style="text-decoration:none; background: #2271b1; padding: 5px 10px; display: inline-block;border-radius: 8px;color: #fff;font-size: 16px;" href="https://buymeacoffee.com/jahidcmt4" target="_blank"><i class="fa fa-coffee" aria-hidden="true"></i> Buy Me a Coffee</a>', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'framework_title'         =>   __( 'Disabled Settings', 'disabled-source-disabled-right-click-and-content-protection' ),
     'menu_title'              =>   __( 'Disabled Settings', 'disabled-source-disabled-right-click-and-content-protection' ),
     'menu_slug'               =>   'disabled-source-disabled-right-click-and-content-protection',
     'menu_icon'               =>   'dashicons-lock',
@@ -190,7 +196,7 @@ if( class_exists( 'CSF' ) ) {
         'type'    => 'notice',
         'style'   => 'danger',
         'class'   => 'jh_admin_feature_notice',
-        'content' => __( "<b> Note: If you enable these settings, You can access only (wp-admin, wp-login.php, and wp-register.php) These pages. Don't accept your custom login URL. </b>", 'disabled-source-disabled-right-click-and-content-protection' ),
+        'content' => __( "Note: If you enable these settings, You can access only (wp-admin, wp-login.php, and wp-register.php) These pages. Don't accept your custom login URL.", 'disabled-source-disabled-right-click-and-content-protection' ),
       ),
       array(
       'id'    => 'enabled-maintenance',
@@ -219,7 +225,7 @@ if( class_exists( 'CSF' ) ) {
         'type'    => 'notice',
         'style'   => 'danger',
         'class'   => 'jh_admin_feature_notice',
-        'content' => __( "<b>Note: Never use your own IP Address. For Example, if your IP Address is 127.0.0.1, then never add this into a field. Otherwise, you can't access your own Website Without VPN.</b>", 'disabled-source-disabled-right-click-and-content-protection' ),
+        'content' => __( "Note: Never use your own IP Address. For Example, if your IP Address is 127.0.0.1, then never add this into a field. Otherwise, you can't access your own Website Without VPN.", 'disabled-source-disabled-right-click-and-content-protection' ),
       ),
       array(
         'id'     => 'disabled_ip_section',
@@ -264,7 +270,7 @@ if( class_exists( 'CSF' ) ) {
         'type'    => 'notice',
         'style'   => 'danger',
         'class'   => 'jh_admin_feature_notice',
-        'content' => __( "<b>Note: Never select your own Country. For Example, if your Country is the United Kingdom, then you never select the United Kingdom. Otherwise, you can't access your own Website Without VPN.</b>", 'disabled-source-disabled-right-click-and-content-protection' ),
+        'content' => __( "Note: Never select your own Country. For Example, if your Country is the United Kingdom, then you never select the United Kingdom. Otherwise, you can't access your own Website Without VPN.", 'disabled-source-disabled-right-click-and-content-protection' ),
       ),
       array(
         'id'         => 'disabled_ip_country',
@@ -440,6 +446,22 @@ if( class_exists( 'CSF' ) ) {
         'title' => __( 'Disable By Roles', 'disabled-source-disabled-right-click-and-content-protection' ),
         'options' => function_exists( 'disable_get_all_author_roles' ) ? disable_get_all_author_roles() : '',
         'default' => 'customer'
+      ),
+    )
+  ) );
+
+   // Disable By Post Type
+   CSF::createSection( $prefix, array(
+    'title'  => __( 'Disable By Post Type', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'id'    => 'disable-post-type',
+        'type'  => 'select',
+        'title' => __( 'Disable By Post Type', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'options' => function_exists( 'disable_get_all_post_type' ) ? disable_get_all_post_type() : '',
+        'chosen'      => true,
+        'multiple'    => true,
+        'placeholder' => "If left empty, it will affect all post type.",
       ),
     )
   ) );

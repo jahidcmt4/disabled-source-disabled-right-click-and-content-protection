@@ -2,20 +2,17 @@
 Contributors: jahidcse
 Tags: content protection, no right click, right click off, image protection, disable IP  address and country
 Requires at least: 4.7
-Tested up to: 6.6
-Stable tag: 1.4.4
+Tested up to: 6.8
+Stable tag: 1.6.0
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Donate link: https://buymeacoffee.com/jahidcmt4
 
 Disable Source(Ctrl+U), Disable Right click, Disable F12 functional key, and Disable save the page(Ctrl+S) and Content Protection of your WordPress Website. 
 
 == Description ==
 
-Disabled Source, Disabled Right Click, and Content Protection is a very simple plugin to Protect your Website Content, Disable view page source(Ctrl+U), Disable Right Click, Disable F12 functional key, and Disable save the page(Ctrl+S). The special thing is you to allow or disallow your post comments/review section.
-
-👉 Join Our [Facebook Group](https://www.facebook.com/groups/content.protection).
+Disabled Source, Disabled Right Click, and Content Protection is a very simple plugin to Protect your Website Content, Disable view page source(Ctrl+U), Disable Right Click, Disable F12 functional key, and Disable save the page(Ctrl+S). The special thing is for you to allow or disallow your post comments/review section.
 
 The plugin is called copy content protection. It is very easy to use and install. This plugin protects content both on PC and mobile devices. Our latest features block IP Addresses.
 
@@ -23,7 +20,7 @@ The plugin is called copy content protection. It is very easy to use and install
 
 = 🎉 Features =
 
-* Content Copy Protection
+* Content Protection
 * Notification text
 * Disable Developer Tools
 * Right Click Off
@@ -48,7 +45,15 @@ The plugin is called copy content protection. It is very easy to use and install
 * Disable Print Preview Page
 * Disable by Page id
 * Disable by Role wise
-* Disable by Post Type(upcoming)
+* Disable by Post Type
+
+= 🎉 Content Copy Protection =
+
+* Prevent unauthorized users from copying or reproducing your website content and images. Perfect for bloggers, photographers, and businesses who need to protect their intellectual property.
+
+= 🎉 Disable Developer Tools =
+
+* Blocks users from inspecting your website source code or accessing developer tools, enhancing overall site security.
 
 = 🎉 Disable Comments =
 
@@ -61,6 +66,19 @@ The plugin is called copy content protection. It is very easy to use and install
 = 🎉 Disable by Country =
 
 * This feature enables users to block unwanted traffic from accessing your website frontend and backend by Country. It helps to reduce spam and unwanted sign-ups quickly by preventing unwanted visitors from browsing an entire website.
+
+= 🎉 Website Maintenance Mode =
+
+* Activate maintenance mode with a professional custom design, ensuring visitors see a well-crafted page while your site is being developed or updated.
+
+= 🎉 Protect by Post Type =
+
+* Apply protection to entire post types (e.g., Posts, or Custom Post Types), providing comprehensive coverage for your website’s critical assets.
+
+= 🎉 Protect by User Roles =
+
+* You can restrict content and image usage based on user roles (e.g., Editor, Subscriber), allowing you to define who can view or copy sensitive information.
+
 
 == Installation ==
 
@@ -109,6 +127,70 @@ No.
 8. Disable by role wise
 
 == Changelog ==
+
+= 1.6.0 =
+
+* Fixed: Escaping issues
+
+= 1.5.9 =
+
+* Fixed: CSS issue Fixed
+
+= 1.5.8 =
+
+* Added: Support Notice Bar
+
+= 1.5.7 =
+
+* Added: Compatibility with Elementor 3.28.4
+
+= 1.5.6 =
+
+* Fixed: load_textdomain Issue
+
+= 1.5.5 =
+
+* Added: Compatibility with WordPress 6.8
+
+= 1.5.4 =
+
+* Added: Compatibility with WooCommerce 9.8.1
+
+= 1.5.3 =
+
+* Added: Compatibility with WooCommerce 9.6.0
+
+= 1.5.2 =
+
+* Added: Compatibility with Elementor 3.26.5
+
+= 1.5.1 =
+
+* Added: Compatibility with WooCommerce 9.5.2
+
+= 1.5.0 =
+
+* Added: Compatibility with Elementor 3.26.3
+
+= 1.4.9 =
+
+* Added: Compatibility with WooCommerce 9.4.3
+
+= 1.4.8 =
+
+* Added: Compatibility with WordPress 6.7
+
+= 1.4.7 =
+
+* Added: Block by post type
+
+= 1.4.6 =
+
+* Fixed: Block by Roles
+
+= 1.4.5 =
+
+* Fixed: Homepage block issue
 
 = 1.4.4 =
 

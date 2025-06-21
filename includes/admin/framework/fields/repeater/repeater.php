@@ -24,7 +24,7 @@ if ( ! class_exists( 'CSF_Field_repeater' ) ) {
 
       if ( preg_match( '/'. preg_quote( '['. $this->field['id'] .']' ) .'/', $this->unique ) ) {
 
-        echo '<div class="csf-notice csf-notice-danger">'. esc_html__( 'Error: Field ID conflict.', 'csf' ) .'</div>';
+        echo '<div class="csf-notice csf-notice-danger">'. esc_html__( 'Error: Field ID conflict.', 'disabled-source-disabled-right-click-and-content-protection' ) .'</div>';
 
       } else {
 
@@ -45,7 +45,7 @@ if ( ! class_exists( 'CSF_Field_repeater' ) ) {
         echo '<div class="csf-repeater-helper-inner">';
         echo '<i class="csf-repeater-sort fas fa-arrows-alt"></i>';
         echo '<i class="csf-repeater-clone far fa-clone"></i>';
-        echo '<i class="csf-repeater-remove csf-confirm fas fa-times" data-confirm="'. esc_html__( 'Are you sure to delete this item?', 'csf' ) .'"></i>';
+        echo '<i class="csf-repeater-remove csf-confirm fas fa-times" data-confirm="'. esc_html__( 'Are you sure to delete this item?', 'disabled-source-disabled-right-click-and-content-protection' ) .'"></i>';
         echo '</div>';
         echo '</div>';
         echo '</div>';
@@ -73,7 +73,7 @@ if ( ! class_exists( 'CSF_Field_repeater' ) ) {
             echo '<div class="csf-repeater-helper-inner">';
             echo '<i class="csf-repeater-sort fas fa-arrows-alt"></i>';
             echo '<i class="csf-repeater-clone far fa-clone"></i>';
-            echo '<i class="csf-repeater-remove csf-confirm fas fa-times" data-confirm="'. esc_html__( 'Are you sure to delete this item?', 'csf' ) .'"></i>';
+            echo '<i class="csf-repeater-remove csf-confirm fas fa-times" data-confirm="'. esc_html__( 'Are you sure to delete this item?', 'disabled-source-disabled-right-click-and-content-protection' ) .'"></i>';
             echo '</div>';
             echo '</div>';
             echo '</div>';
@@ -86,8 +86,8 @@ if ( ! class_exists( 'CSF_Field_repeater' ) ) {
 
         echo '</div>';
 
-        echo '<div class="csf-repeater-alert csf-repeater-max">'. esc_html__( 'You cannot add more.', 'csf' ) .'</div>';
-        echo '<div class="csf-repeater-alert csf-repeater-min">'. esc_html__( 'You cannot remove more.', 'csf' ) .'</div>';
+        echo '<div class="csf-repeater-alert csf-repeater-max">'. esc_html__( 'You cannot add more.', 'disabled-source-disabled-right-click-and-content-protection' ) .'</div>';
+        echo '<div class="csf-repeater-alert csf-repeater-min">'. esc_html__( 'You cannot remove more.', 'disabled-source-disabled-right-click-and-content-protection' ) .'</div>';
         echo '<a href="#" class="button button-primary csf-repeater-add">'. wp_kses_post($args['button_title']) .'</a>';
 
         echo wp_kses_post($this->field_after());
