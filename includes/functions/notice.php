@@ -28,6 +28,7 @@ if(!function_exists('jh_review_notice')){
         ?>
             <div class="notice notice-info jh_disable_review_notice"> 
                
+                <!-- translators: 1: Current user's display name, 2: Plugin name -->
                 <?php echo sprintf( 
                         esc_html__( ' Hey %1$s 👋, You have been using %2$s for quite a while. If you feel %2$s is helping your business to grow in any way, would you please help %2$s to grow by simply leaving a ★★★★★ review on the WordPress Forum?', 'disabled-source-disabled-right-click-and-content-protection' ),
                         esc_html($current_user->display_name),
@@ -125,7 +126,7 @@ if(!function_exists('jh_support_notice')){
             <div class="jh-link-boxs">
                     <div class="jh-link-box">
                     <a href="http://wpassisthub.com/contact/" target="_blank">
-                        <img src="<?php echo JH_URL.'/includes'; ?>/admin/assets/images/jh-custom-service.png" alt="<?php esc_html_e("Custom Service","disabled-source-disabled-right-click-and-content-protection"); ?>">
+                        <img src="<?php echo esc_url(JH_URL.'/includes/admin/assets/images/jh-custom-service.png'); ?>" alt="<?php esc_html_e("Custom Service","disabled-source-disabled-right-click-and-content-protection"); ?>">
                         <h3><?php esc_html_e("More Services","disabled-source-disabled-right-click-and-content-protection"); ?></h3>
                         <p><?php esc_html_e("We offer custom plugin development, plugin customization, website design, speed optimization, and full site customization.","disabled-source-disabled-right-click-and-content-protection"); ?></p>
                         <span><?php esc_html_e("Contact Us","disabled-source-disabled-right-click-and-content-protection"); ?></span>
@@ -133,7 +134,7 @@ if(!function_exists('jh_support_notice')){
                     </div>
                     <div class="jh-link-box">
                     <a href="http://wpassisthub.com/contact/" target="_blank">
-                        <img src="<?php echo JH_URL.'/includes'; ?>/admin/assets/images/jh-mail.png" alt="<?php esc_html_e("Mail","disabled-source-disabled-right-click-and-content-protection"); ?>">
+                        <img src="<?php echo esc_url(JH_URL.'/includes/admin/assets/images/jh-mail.png'); ?>" alt="<?php esc_html_e("Mail","disabled-source-disabled-right-click-and-content-protection"); ?>">
                         <h3><?php esc_html_e("Mail Support","disabled-source-disabled-right-click-and-content-protection"); ?></h3>
                         <p><?php esc_html_e("Get reliable mail support from our team—fast, friendly assistance for your WordPress issues right in your inbox.","disabled-source-disabled-right-click-and-content-protection"); ?></p>
                         <span><?php esc_html_e("Contact Us","disabled-source-disabled-right-click-and-content-protection"); ?></span>
@@ -142,7 +143,7 @@ if(!function_exists('jh_support_notice')){
                     </div>
                     <div class="jh-link-box">
                     <a href="http://wpassisthub.com/" target="_blank">
-                        <img src="<?php echo JH_URL.'/includes'; ?>/admin/assets/images/jh-comment.png" alt="<?php esc_html_e("Live Chat","disabled-source-disabled-right-click-and-content-protection"); ?>">
+                        <img src="<?php echo esc_url(JH_URL.'/includes/admin/assets/images/jh-comment.png'); ?>" alt="<?php esc_html_e("Live Chat","disabled-source-disabled-right-click-and-content-protection"); ?>">
                         <h3><?php esc_html_e("Live Chat","disabled-source-disabled-right-click-and-content-protection"); ?></h3>
                         <p><?php esc_html_e("Connect with us instantly through live chat for quick, real-time support and solutions to your WordPress questions and issues.","disabled-source-disabled-right-click-and-content-protection"); ?></p>
                         <span><?php esc_html_e("Contact Us","disabled-source-disabled-right-click-and-content-protection"); ?></span>

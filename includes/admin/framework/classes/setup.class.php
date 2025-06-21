@@ -574,10 +574,10 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
 
       // Font awesome 4 and 5 loader
       if ( apply_filters( 'csf_fa4', false ) ) {
-        wp_enqueue_style( 'csf-fa', 'https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), '4.7.0', 'all' );
+        wp_enqueue_style( 'csf-fa', '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css', array(), '4.7.0', 'all' );
       } else {
-        wp_enqueue_style( 'csf-fa5', 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), '5.15.5', 'all' );
-        wp_enqueue_style( 'csf-fa5-v4-shims', 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/v4-shims.min.css', array(), '5.15.5', 'all' );
+        wp_enqueue_style( 'csf-fa5', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css', array(), '5.15.5', 'all' );
+        wp_enqueue_style( 'csf-fa5-v4-shims', '//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/v4-shims.min.css', array(), '5.15.5', 'all' );
       }
 
       // Check for developer mode
@@ -599,10 +599,10 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
       wp_localize_script( 'csf', 'csf_vars', array(
         'color_palette'     => apply_filters( 'csf_color_palette', array() ),
         'i18n'              => array(
-          'confirm'         => esc_html__( 'Are you sure?', 'csf' ),
-          'typing_text'     => esc_html__( 'Please enter %s or more characters', 'csf' ),
-          'searching_text'  => esc_html__( 'Searching...', 'csf' ),
-          'no_results_text' => esc_html__( 'No results found.', 'csf' ),
+          'confirm'         => esc_html__( 'Are you sure?', 'disabled-source-disabled-right-click-and-content-protection' ),
+          'typing_text'     => esc_html__( 'Please enter or more characters', 'disabled-source-disabled-right-click-and-content-protection' ),
+          'searching_text'  => esc_html__( 'Searching...', 'disabled-source-disabled-right-click-and-content-protection' ),
+          'no_results_text' => esc_html__( 'No results found.', 'disabled-source-disabled-right-click-and-content-protection' ),
         ),
       ) );
 
@@ -703,7 +703,7 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
         $field_type = $field['type'];
 
         $field            = array();
-        $field['content'] = esc_html__( 'Oops! Not allowed.', 'csf' ) .' <strong>('. $field_type .')</strong>';
+        $field['content'] = esc_html__( 'Oops! Not allowed.', 'disabled-source-disabled-right-click-and-content-protection' ) .' <strong>('. $field_type .')</strong>';
         $field['type']    = 'notice';
         $field['style']   = 'danger';
 
@@ -771,11 +771,11 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
           $instance = new $classname( $field, $value, $unique, $where, $parent );
           $instance->render();
         } else {
-          echo '<p>'. esc_html__( 'Field not found!', 'csf' ) .'</p>';
+          echo '<p>'. esc_html__( 'Field not found!', 'disabled-source-disabled-right-click-and-content-protection' ) .'</p>';
         }
 
       } else {
-        echo '<p>'. esc_html__( 'Field not found!', 'csf' ) .'</p>';
+        echo '<p>'. esc_html__( 'Field not found!', 'disabled-source-disabled-right-click-and-content-protection' ) .'</p>';
       }
 
       echo ( ! empty( $field['title'] ) ) ? '</div>' : '';

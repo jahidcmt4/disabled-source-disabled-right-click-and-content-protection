@@ -196,7 +196,7 @@ if( class_exists( 'CSF' ) ) {
         'type'    => 'notice',
         'style'   => 'danger',
         'class'   => 'jh_admin_feature_notice',
-        'content' => __( "<b> Note: If you enable these settings, You can access only (wp-admin, wp-login.php, and wp-register.php) These pages. Don't accept your custom login URL. </b>", 'disabled-source-disabled-right-click-and-content-protection' ),
+        'content' => __( "Note: If you enable these settings, You can access only (wp-admin, wp-login.php, and wp-register.php) These pages. Don't accept your custom login URL.", 'disabled-source-disabled-right-click-and-content-protection' ),
       ),
       array(
       'id'    => 'enabled-maintenance',
@@ -225,7 +225,7 @@ if( class_exists( 'CSF' ) ) {
         'type'    => 'notice',
         'style'   => 'danger',
         'class'   => 'jh_admin_feature_notice',
-        'content' => __( "<b>Note: Never use your own IP Address. For Example, if your IP Address is 127.0.0.1, then never add this into a field. Otherwise, you can't access your own Website Without VPN.</b>", 'disabled-source-disabled-right-click-and-content-protection' ),
+        'content' => __( "Note: Never use your own IP Address. For Example, if your IP Address is 127.0.0.1, then never add this into a field. Otherwise, you can't access your own Website Without VPN.", 'disabled-source-disabled-right-click-and-content-protection' ),
       ),
       array(
         'id'     => 'disabled_ip_section',
@@ -270,7 +270,7 @@ if( class_exists( 'CSF' ) ) {
         'type'    => 'notice',
         'style'   => 'danger',
         'class'   => 'jh_admin_feature_notice',
-        'content' => __( "<b>Note: Never select your own Country. For Example, if your Country is the United Kingdom, then you never select the United Kingdom. Otherwise, you can't access your own Website Without VPN.</b>", 'disabled-source-disabled-right-click-and-content-protection' ),
+        'content' => __( "Note: Never select your own Country. For Example, if your Country is the United Kingdom, then you never select the United Kingdom. Otherwise, you can't access your own Website Without VPN.", 'disabled-source-disabled-right-click-and-content-protection' ),
       ),
       array(
         'id'         => 'disabled_ip_country',
