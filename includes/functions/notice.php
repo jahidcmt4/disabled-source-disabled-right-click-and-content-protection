@@ -162,11 +162,10 @@ if(!function_exists('jh_support_notice')){
 if ( !is_plugin_active( 'ctblock-pro/ctblock-pro.php' ) ) {
 	function ctblock_pro_add_pro_link_menu() {
 		$prolink = esc_url('https://tourfic.com/go/upgrade');
-		$menuname = '<span class="ctblock-pro-upgrade-menu" style="background: #39b54a;display: block;color: #fff;padding: 5px 10px;text-align:center;border-radius: 5px;font-weight: 600;">' .__("Upgrade", "disabled-source-disabled-right-click-and-content-protection"). '</span>';
 		add_submenu_page(
 			'disabled-source-disabled-right-click-and-content-protection',
 			__('Upgrade', 'disabled-source-disabled-right-click-and-content-protection'),
-			$menuname,
+			__('Upgrade', 'disabled-source-disabled-right-click-and-content-protection'),
 			'manage_options',
 			$prolink
 		);

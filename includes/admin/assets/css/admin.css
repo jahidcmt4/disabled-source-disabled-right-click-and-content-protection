@@ -1,21 +1,20 @@
 .disable-up-badge{
-    display: inline-block;
-    color: #fff;
-    padding: 3px 10px 3px 10px;
-    border-radius: 3px;
-    text-align: center;
-    margin: 5px 0 0 0;
-    font-size: 12px;
-    font-weight: 600;
-    background: #006600;
+  display: inline-block;
+  color: #fff;
+  padding: 3px 10px 3px 10px;
+  border-radius: 3px;
+  text-align: center;
+  margin: 5px 0 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  background: #006600;
 }
 .jh-warning-title .csf-subtitle-text{
-    color: red;
+  color: red;
 }
 
 
 /* Review admin notice CSS */
-
 .jh_disable_review_notice p{
     padding-right: 20px;
 }
@@ -118,8 +117,23 @@
   color: #fff;
 }
 
-/* Responsive */
+/* Upgrade to pro */
+#adminmenu #toplevel_page_disabled-source-disabled-right-click-and-content-protection a[href*="https://tourfic.com/go/upgrade"]{
+  background: #39b54a;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  font-weight: 600;
+  margin: 3px 10px 0;
+  text-align: center;
+  transition: all .3s;
+}
+#adminmenu #toplevel_page_disabled-source-disabled-right-click-and-content-protection a[href*="https://tourfic.com/go/upgrade"]:hover{
+  box-shadow: none !important;
+  background: #137320;
+}
 
+/* Responsive */
 @media all and (max-width: 767px){
   .jh-support-notice-box .jh-link-boxs{
     flex-wrap: wrap;
