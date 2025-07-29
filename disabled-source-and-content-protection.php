@@ -40,8 +40,14 @@ if ( file_exists( JH_PATH . 'includes/admin/framework/codestar-framework.php' ) 
 * Global Option Page
 */
 function jh_disabled_init_global_plugin() {
-  if ( file_exists( JH_PATH . 'includes/admin/options/global.php' ) ) {
-    require_once JH_PATH . 'includes/admin/options/global.php';
+  if (class_exists('CTBLOCK_PRO_INIT')) {
+    if ( file_exists( CTBLOCK_PRO_PATH . 'includes/admin/options/global.php' ) ) {
+      require_once CTBLOCK_PRO_PATH . 'includes/admin/options/global.php';
+    }
+  }else{
+    if ( file_exists( JH_PATH . 'includes/admin/options/global.php' ) ) {
+      require_once JH_PATH . 'includes/admin/options/global.php';
+    }
   }
 }
 
@@ -70,7 +76,15 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ),'disablde_sourc
 
 function disablde_source_deshboard_settings( $links ) {
   $link = sprintf( "<a href='%s' style='color:#2271b1;'>%s</a>", admin_url( 'admin.php?page=disabled-source-disabled-right-click-and-content-protection'), __( 'Settings', 'disabled-source-disabled-right-click-and-content-protection' ) );
-  array_push( $links, $link );
+  if ( !is_plugin_active( 'ctblock-pro/ctblock-pro.php' ) ) {
+    $gopro_link = sprintf( "<a href='%s' style='color:#39b54a;font-weight: 700;' target='_blank'>%s</a>", esc_url( 'https://tourfic.com/go/upgrade'), __( 'Get Pro', 'disabled-source-disabled-right-click-and-content-protection' ) );
+
+    array_push( $links, $link );
+    array_push( $links, $gopro_link );
+  }else{
+      array_push( $links, $link );
+  }
+
 
   return $links;
 }

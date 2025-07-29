@@ -335,4 +335,40 @@ function jh_disable_check_frontend_post_types() {
   }
 }
 
+
+if ( ! function_exists( 'disable_get_all_author_roles' ) ) {
+	function disable_get_all_author_roles() {
+		$roles = wp_roles()->get_names();
+    $all_roles = [];
+    foreach ($roles as $role => $name) {
+      if("administrator"!=$role){
+        $all_roles[$role] = $name;
+      }
+    }
+    return $all_roles;
+	}
+}
+
+if ( ! function_exists( 'disable_get_all_pages' ) ) {
+	function disable_get_all_pages() {
+		// Get all pages
+		$pages = get_pages();
+		
+		$all_pages = ['jh_disable_front' => 'Front Page -- Home Page'];
+
+		foreach ( $pages as $page ) {
+			$all_pages[$page->ID] = $page->post_title;
+		}
+		return $all_pages;
+	}
+}
+
+// Post Type
+if ( ! function_exists( 'disable_get_all_post_type' ) ) {
+	function disable_get_all_post_type() {
+    $all_post_types =  get_option('jh_disable_post_types');
+    return $all_post_types;
+	}
+}
+
 ?>
