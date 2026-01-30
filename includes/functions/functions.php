@@ -30,7 +30,7 @@ function disabled_source_front_page_script(){
 				wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
 			}
 
-			wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.0.0', true );
+			wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.6.5', true );
 			$jh_disabled_options_data_pass = array(
 				'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
 				'disabled_ct_u' => !empty( $jhdoption['disabled-ct-u'] ) ? $jhdoption['disabled-ct-u'] : '',
@@ -58,7 +58,7 @@ function disabled_source_front_page_script(){
 					wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
 				}
 				
-				wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.0.0', true );
+				wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.6.5', true );
 				$jh_disabled_options_data_pass = array(
 					'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
 					'disabled_ct_u' => !empty( $jhdoption['disabled-ct-u'] ) ? $jhdoption['disabled-ct-u'] : '',

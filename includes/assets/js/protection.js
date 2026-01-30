@@ -99,6 +99,15 @@ document.addEventListener('keydown', function (e) {
    }
 });
 
+document.onkeydown = function(e) {
+   if (jh_disabled_options_data.disabled_ct_p == "1") {
+      if (e.ctrlKey && e.keyCode == 'P'.charCodeAt(0)) {
+         notify();
+         return false;
+      }
+   }
+}
+
 if (jh_disabled_options_data.disabled_dragging_img == "1") {
    jQuery("img").mousedown(function(){
     return false;
