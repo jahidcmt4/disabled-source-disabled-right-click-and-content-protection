@@ -9,6 +9,7 @@ defined( 'ABSPATH' ) || exit;
 add_action('admin_enqueue_scripts', 'disabled_source_admin_page_script');
 function disabled_source_admin_page_script(){
 	wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/admin/assets/css/admin.css', false, '1.5.9');
+	wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/admin/assets/js/admin.js', true, '1.5.9');
 }
 
 
@@ -333,6 +334,41 @@ function jh_disable_check_frontend_post_types() {
   if ($current_saved_value !== $all_post_types) {
 	update_option('jh_disable_post_types', $all_post_types);
   }
+}
+
+if ( ! function_exists( 'disable_get_all_author_roles' ) ) {
+	function disable_get_all_author_roles() {
+		$roles = wp_roles()->get_names();
+    $all_roles = [];
+    foreach ($roles as $role => $name) {
+      if("administrator"!=$role){
+        $all_roles[$role] = $name;
+      }
+    }
+    return $all_roles;
+	}
+}
+
+if ( ! function_exists( 'disable_get_all_pages' ) ) {
+	function disable_get_all_pages() {
+		// Get all pages
+		$pages = get_pages();
+		
+		$all_pages = ['jh_disable_front' => 'Front Page -- Home Page'];
+
+		foreach ( $pages as $page ) {
+			$all_pages[$page->ID] = $page->post_title;
+		}
+		return $all_pages;
+	}
+}
+
+// Post Type
+if ( ! function_exists( 'disable_get_all_post_type' ) ) {
+	function disable_get_all_post_type() {
+    $all_post_types =  get_option('jh_disable_post_types');
+    return $all_post_types;
+	}
 }
 
 ?>

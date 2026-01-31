@@ -155,3 +155,20 @@ if(!function_exists('jh_support_notice')){
        }
     }
 }
+
+/**
+ * Add Pro link in admin menu page.
+ */
+if ( !is_plugin_active( 'ctblock-pro/ctblock-pro.php' ) ) {
+	function ctblock_pro_add_pro_link_menu() {
+		$prolink = esc_url('https://tourfic.com/go/upgrade');
+		add_submenu_page(
+			'disabled-source-disabled-right-click-and-content-protection',
+			__('Upgrade', 'disabled-source-disabled-right-click-and-content-protection'),
+			__('Upgrade', 'disabled-source-disabled-right-click-and-content-protection'),
+			'manage_options',
+			$prolink
+		);
+	}
+	add_action('admin_menu', 'ctblock_pro_add_pro_link_menu', 9999);
+}

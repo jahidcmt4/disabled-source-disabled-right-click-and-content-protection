@@ -118,6 +118,22 @@
   color: #fff;
 }
 
+/* Upgrade to pro */
+#adminmenu #toplevel_page_disabled-source-disabled-right-click-and-content-protection a[href*="https://tourfic.com/go/upgrade"]{
+  background: #39b54a;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  font-weight: 600;
+  margin: 3px 10px 0;
+  text-align: center;
+  transition: all .3s;
+}
+#adminmenu #toplevel_page_disabled-source-disabled-right-click-and-content-protection a[href*="https://tourfic.com/go/upgrade"]:hover{
+  box-shadow: none !important;
+  background: #137320;
+}
+
 /* Responsive */
 
 @media all and (max-width: 767px){
