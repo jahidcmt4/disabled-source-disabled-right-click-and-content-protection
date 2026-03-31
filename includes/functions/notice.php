@@ -1,5 +1,8 @@
 <?php 
 
+// don't load directly
+defined( 'ABSPATH' ) || exit;
+
 // Disabled Source Plugin Set Admin Notice Status
 if(!function_exists('jh_review_activation_status')){
 
