@@ -20,6 +20,44 @@ defined( 'ABSPATH' ) || exit;
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
+if ( ! function_exists( 'dsdrcacp_fs' ) && !is_plugin_active( 'disabled-source-disabled-right-click-and-content-protection-pro/ctblock-pro.php' ) ) {
+  // Create a helper function for easy SDK access.
+  function dsdrcacp_fs() {
+      global $dsdrcacp_fs;
+
+      if ( ! isset( $dsdrcacp_fs ) ) {
+        if ( !defined( 'WP_FS__PRODUCT_26484_MULTISITE' ) ) {
+          define( 'WP_FS__PRODUCT_26484_MULTISITE', true );
+        }
+        require_once dirname( __FILE__ ) . '/includes/vendor/start.php';
+        $dsdrcacp_fs = fs_dynamic_init( array(
+            'id'               => '26484',
+            'slug'             => 'disabled-source-disabled-right-click-and-content-protection',
+            'premium_slug'     => 'disabled-source-disabled-right-click-and-content-protection-pro',
+            'type'             => 'plugin',
+            'public_key'       => 'pk_8940fc0c5b451b9903dcd9855e5c4',
+            'is_premium'       => false,
+            'premium_suffix'   => 'Starter',
+            'has_addons'       => false,
+            'has_paid_plans'   => true,
+            'is_org_compliant' => true,
+            'menu'             => array(
+                'slug'    => 'disabled-source-disabled-right-click-and-content-protection',
+                'support' => false,
+            ),
+            'is_live'          => true,
+        ) );
+      }
+
+      return $dsdrcacp_fs;
+  }
+
+  // Init Freemius.
+  dsdrcacp_fs();
+  // Signal that SDK was initiated.
+  do_action( 'dsdrcacp_fs_loaded' );
+}
+
 //URL
 
 define( 'JH_URL', plugin_dir_url( __FILE__ ) );
@@ -76,14 +114,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ),'disablde_sourc
 
 function disablde_source_deshboard_settings( $links ) {
   $link = sprintf( "<a href='%s' style='color:#2271b1;'>%s</a>", admin_url( 'admin.php?page=disabled-source-disabled-right-click-and-content-protection'), __( 'Settings', 'disabled-source-disabled-right-click-and-content-protection' ) );
-  if ( !is_plugin_active( 'ctblock-pro/ctblock-pro.php' ) ) {
-    $gopro_link = sprintf( "<a href='%s' style='color:#39b54a;font-weight: 700;' target='_blank'>%s</a>", esc_url( 'https://tourfic.com/go/upgrade'), __( 'Get Pro', 'disabled-source-disabled-right-click-and-content-protection' ) );
-
-    array_push( $links, $link );
-    array_push( $links, $gopro_link );
-  }else{
-    array_push( $links, $link );
-  }
+  array_push( $links, $link );
 
   return $links;
 }
