@@ -8,8 +8,7 @@ defined( 'ABSPATH' ) || exit;
 
 add_action('admin_enqueue_scripts', 'disabled_source_admin_page_script');
 function disabled_source_admin_page_script(){
-	wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/admin/assets/css/admin.css', false, '1.5.9');
-	wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/admin/assets/js/admin.js', true, '1.5.9');
+	wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/admin/assets/css/admin.css', false, JH_VERSION);
 }
 
 
@@ -25,13 +24,13 @@ function disabled_source_front_page_script(){
 		if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') && apply_filters( 'jh_disable_post_type_permission', $post_type_permission = '') ){
 
 			if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
-				wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
+				wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, JH_VERSION);
 			}
 			if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
 				wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
 			}
 
-			wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.6.5', true );
+			wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), JH_VERSION, true );
 			$jh_disabled_options_data_pass = array(
 				'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
 				'disabled_ct_u' => !empty( $jhdoption['disabled-ct-u'] ) ? $jhdoption['disabled-ct-u'] : '',
@@ -53,13 +52,13 @@ function disabled_source_front_page_script(){
 			if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') && apply_filters( 'jh_disable_post_type_permission', $post_type_permission = '') ){
 				
 				if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
-					wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
+					wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, JH_VERSION);
 				}
 				if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
 					wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
 				}
 				
-				wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.6.5', true );
+				wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), JH_VERSION, true );
 				$jh_disabled_options_data_pass = array(
 					'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
 					'disabled_ct_u' => !empty( $jhdoption['disabled-ct-u'] ) ? $jhdoption['disabled-ct-u'] : '',
