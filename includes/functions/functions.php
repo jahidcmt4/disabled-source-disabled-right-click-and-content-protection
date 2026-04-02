@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
 
 add_action('admin_enqueue_scripts', 'disabled_source_admin_page_script');
 function disabled_source_admin_page_script(){
-	wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/admin/assets/css/admin.css', false, JH_VERSION);
+	wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/admin/assets/css/admin.css', false, '1.5.9');
 }
 
 
@@ -24,13 +24,13 @@ function disabled_source_front_page_script(){
 		if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') && apply_filters( 'jh_disable_post_type_permission', $post_type_permission = '') ){
 
 			if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
-				wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, JH_VERSION);
+				wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
 			}
 			if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
 				wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
 			}
 
-			wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), JH_VERSION, true );
+			wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.6.5', true );
 			$jh_disabled_options_data_pass = array(
 				'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
 				'disabled_ct_u' => !empty( $jhdoption['disabled-ct-u'] ) ? $jhdoption['disabled-ct-u'] : '',
@@ -52,13 +52,13 @@ function disabled_source_front_page_script(){
 			if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') && apply_filters( 'jh_disable_post_type_permission', $post_type_permission = '') ){
 				
 				if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
-					wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, JH_VERSION);
+					wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
 				}
 				if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
 					wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
 				}
 				
-				wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), JH_VERSION, true );
+				wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.6.5', true );
 				$jh_disabled_options_data_pass = array(
 					'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
 					'disabled_ct_u' => !empty( $jhdoption['disabled-ct-u'] ) ? $jhdoption['disabled-ct-u'] : '',
@@ -333,41 +333,6 @@ function jh_disable_check_frontend_post_types() {
   if ($current_saved_value !== $all_post_types) {
 	update_option('jh_disable_post_types', $all_post_types);
   }
-}
-
-if ( ! function_exists( 'disable_get_all_author_roles' ) ) {
-	function disable_get_all_author_roles() {
-		$roles = wp_roles()->get_names();
-    $all_roles = [];
-    foreach ($roles as $role => $name) {
-      if("administrator"!=$role){
-        $all_roles[$role] = $name;
-      }
-    }
-    return $all_roles;
-	}
-}
-
-if ( ! function_exists( 'disable_get_all_pages' ) ) {
-	function disable_get_all_pages() {
-		// Get all pages
-		$pages = get_pages();
-		
-		$all_pages = ['jh_disable_front' => 'Front Page -- Home Page'];
-
-		foreach ( $pages as $page ) {
-			$all_pages[$page->ID] = $page->post_title;
-		}
-		return $all_pages;
-	}
-}
-
-// Post Type
-if ( ! function_exists( 'disable_get_all_post_type' ) ) {
-	function disable_get_all_post_type() {
-    $all_post_types =  get_option('jh_disable_post_types');
-    return $all_post_types;
-	}
 }
 
 ?>

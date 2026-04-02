@@ -24,7 +24,6 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 define( 'JH_URL', plugin_dir_url( __FILE__ ) );
 define( 'JH_PATH', plugin_dir_path( __FILE__ ) );
-define( 'JH_VERSION', '1.6.5' );
 
 // Init Hook
 add_action( 'init', 'jh_disabled_init_global_plugin' );
@@ -41,14 +40,8 @@ if ( file_exists( JH_PATH . 'includes/admin/framework/codestar-framework.php' ) 
 * Global Option Page
 */
 function jh_disabled_init_global_plugin() {
-  if (class_exists('CTBLOCK_PRO_INIT')) {
-    if ( file_exists( CTBLOCK_PRO_PATH . 'includes/admin/options/global.php' ) ) {
-      require_once CTBLOCK_PRO_PATH . 'includes/admin/options/global.php';
-    }
-  }else{
-    if ( file_exists( JH_PATH . 'includes/admin/options/global.php' ) ) {
-      require_once JH_PATH . 'includes/admin/options/global.php';
-    }
+  if ( file_exists( JH_PATH . 'includes/admin/options/global.php' ) ) {
+    require_once JH_PATH . 'includes/admin/options/global.php';
   }
 }
 
@@ -80,42 +73,4 @@ function disablde_source_deshboard_settings( $links ) {
   array_push( $links, $link );
 
   return $links;
-}
-
-if ( ! function_exists( 'dsdrcacp_fs' ) && !is_plugin_active( 'disabled-source-disabled-right-click-and-content-protection-pro/ctblock-pro.php' ) ) {
-  // Create a helper function for easy SDK access.
-  function dsdrcacp_fs() {
-      global $dsdrcacp_fs;
-
-      if ( ! isset( $dsdrcacp_fs ) ) {
-        if ( !defined( 'WP_FS__PRODUCT_26484_MULTISITE' ) ) {
-          define( 'WP_FS__PRODUCT_26484_MULTISITE', true );
-        }
-        require_once dirname( __FILE__ ) . '/includes/vendor/start.php';
-        $dsdrcacp_fs = fs_dynamic_init( array(
-            'id'               => '26484',
-            'slug'             => 'disabled-source-disabled-right-click-and-content-protection',
-            'premium_slug'     => 'disabled-source-disabled-right-click-and-content-protection-pro',
-            'type'             => 'plugin',
-            'public_key'       => 'pk_8940fc0c5b451b9903dcd9855e5c4',
-            'is_premium'       => false,
-            'premium_suffix'   => 'Starter',
-            'has_addons'       => false,
-            'has_paid_plans'   => true,
-            'is_org_compliant' => true,
-            'menu'             => array(
-                'slug'    => 'disabled-source-disabled-right-click-and-content-protection',
-                'support' => false,
-            ),
-            'is_live'          => true,
-        ) );
-      }
-
-      return $dsdrcacp_fs;
-  }
-
-  // Init Freemius.
-  dsdrcacp_fs();
-  // Signal that SDK was initiated.
-  do_action( 'dsdrcacp_fs_loaded' );
 }
