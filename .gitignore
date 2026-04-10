@@ -1,0 +1,12 @@
+/node_modules
+node_modules
+*.zip
+.idea
+# .gitignore
+README.md
+*.LICENSE.txt
+.DS_Store
+*.map
+yarn*
+*.css.js
+pnpm*
