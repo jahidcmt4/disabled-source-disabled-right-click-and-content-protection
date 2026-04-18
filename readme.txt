@@ -3,7 +3,7 @@ Contributors: jahidcse
 Tags: content protection, no right click, right click off, image protection, disable IP  address and country
 Requires at least: 4.7
 Tested up to: 6.9
-Stable tag: 1.6.5
+Stable tag: 1.7.0
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -127,6 +127,10 @@ No.
 8. Disable by role wise
 
 == Changelog ==
+
+= 1.7.0 =
+
+* New Settings Integrate
 
 = 1.6.5 =
 
