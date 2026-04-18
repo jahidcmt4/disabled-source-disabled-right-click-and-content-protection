@@ -24,10 +24,7 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 define( 'JH_URL', plugin_dir_url( __FILE__ ) );
 define( 'JH_PATH', plugin_dir_path( __FILE__ ) );
-<<<<<<< HEAD
-=======
 define( 'JH_VERSION', '1.7.0' );
->>>>>>> 07eb536b746089a6eed6617d84f3b55806c9513d
 
 // Init Hook
 add_action( 'init', 'jh_disabled_init_global_plugin' );
