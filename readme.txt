@@ -79,6 +79,26 @@ The plugin is called copy content protection. It is very easy to use and install
 
 * You can restrict content and image usage based on user roles (e.g., Editor, Subscriber), allowing you to define who can view or copy sensitive information.
 
+= 🎉 Watermark Images (Pro) =
+
+* You can apply dynamic watermarks to images, helping you secure and protect your visual content from unauthorized reuse.
+
+= 🎉 Disable Rest API (Pro) =
+
+* You can disable the REST API to block external access and enhance your website security.
+
+= 🎉 Disable CDN (Pro) =
+
+* You can restrict CDN usage, helping protect your content from being accessed through external networks.
+
+= 🎉 Page Block by Password (Pro) =
+
+* You can add password protection to specific pages, giving you control over who can view them.
+
+= 🎉 Change Login Slug (Pro) =
+
+* You can change the default login URL, helping protect your site from unauthorized login attempts.
+
 
 == Installation ==
 
