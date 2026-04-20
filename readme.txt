@@ -25,6 +25,11 @@ The plugin is called copy content protection. It is very easy to use and install
 * Disable Developer Tools
 * Right Click Off
 * Disable Image Drag/Drop
+* Watermark Images (Pro)
+* Disable Rest API (Pro)
+* Disable CDN (Pro)
+* Page Block by Password (Pro)
+* Change Login Slug (Pro)
 * Disable F12
 * Disable Ctrl+I
 * Disable Ctrl+Shift+I
