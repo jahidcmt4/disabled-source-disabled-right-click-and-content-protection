@@ -3,7 +3,7 @@ Contributors: jahidcse
 Tags: content protection, no right click, right click off, image protection, disable IP  address and country
 Requires at least: 4.7
 Tested up to: 6.9
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -25,6 +25,11 @@ The plugin is called copy content protection. It is very easy to use and install
 * Disable Developer Tools
 * Right Click Off
 * Disable Image Drag/Drop
+* Watermark Images (Pro)
+* Disable Rest API (Pro)
+* Disable CDN (Pro)
+* Page Block by Password (Pro)
+* Change Login Slug (Pro)
 * Disable F12
 * Disable Ctrl+I
 * Disable Ctrl+Shift+I
@@ -79,6 +84,26 @@ The plugin is called copy content protection. It is very easy to use and install
 
 * You can restrict content and image usage based on user roles (e.g., Editor, Subscriber), allowing you to define who can view or copy sensitive information.
 
+= 🎉 Watermark Images (Pro) =
+
+* You can apply dynamic watermarks to images, helping you secure and protect your visual content from unauthorized reuse.
+
+= 🎉 Disable Rest API (Pro) =
+
+* You can disable the REST API to block external access and enhance your website security.
+
+= 🎉 Disable CDN (Pro) =
+
+* You can restrict CDN usage, helping protect your content from being accessed through external networks.
+
+= 🎉 Page Block by Password (Pro) =
+
+* You can add password protection to specific pages, giving you control over who can view them.
+
+= 🎉 Change Login Slug (Pro) =
+
+* You can change the default login URL, helping protect your site from unauthorized login attempts.
+
 
 == Installation ==
 
@@ -127,6 +152,11 @@ No.
 8. Disable by role wise
 
 == Changelog ==
+
+= 1.7.1 =
+
+* Added: Compatibility with WooCommerce 10.7.0
+* Added: Compatibility with Elementor 4.0.3
 
 = 1.7.0 =
 
