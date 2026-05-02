@@ -52,6 +52,9 @@ The plugin is called copy content protection. It is very easy to use and install
 * Disable by Role wise
 * Disable by Post Type
 
+### Installation & Preview
+[youtube https://www.youtube.com/watch?v=WPh12Ahsk24]
+
 = 🎉 Content Copy Protection =
 
 * Prevent unauthorized users from copying or reproducing your website content and images. Perfect for bloggers, photographers, and businesses who need to protect their intellectual property.
