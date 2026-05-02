@@ -125,6 +125,26 @@ function jh_getvisitor_IP() {
 }
 
 
+/**
+ * Get the country code for the current admin user (cached via transient).
+ * Returns a 2-letter ISO country code string, or empty string on failure.
+ */
+function jh_get_admin_country_code() {
+	$transient_key = 'jh_admin_country_' . md5( jh_getvisitor_IP() );
+	$cached = get_transient( $transient_key );
+	if ( false !== $cached ) {
+		return $cached;
+	}
+
+	$admin_ip   = jh_getvisitor_IP();
+	$info       = @unserialize( file_get_contents( 'http://ip-api.com/php/' . $admin_ip ) );
+	$country_code = ( ! empty( $info['countryCode'] ) ) ? $info['countryCode'] : '';
+
+	set_transient( $transient_key, $country_code, 1 * HOUR_IN_SECONDS );
+
+	return $country_code;
+}
+
 add_action('init','jh_visitor_address_checker');
 function jh_visitor_address_checker(){
 	$jh_disabled_ip_address= get_option( 'jh_disabled_option' );
