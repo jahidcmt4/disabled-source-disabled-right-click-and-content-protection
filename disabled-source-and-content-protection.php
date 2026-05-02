@@ -3,7 +3,7 @@
  * Plugin Name:       Disabled Source, Disabled Right Click and Content Protection
  * Plugin URI:        https://wordpress.org/plugins/disabled-source-disabled-right-click-and-content-protection/
  * Description:       Disabled Source(Ctrl+U), Disabled Right click, Disable F12 functional key, and Disable save the page(Ctrl+S) and Content Protection of your WordPress Website.
- * Version:           1.7.2
+ * Version:           1.7.3
  * Requires at least: 4.7
  * Tested up to: 6.9
  * Requires PHP:      5.3
@@ -24,7 +24,7 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 define( 'JH_URL', plugin_dir_url( __FILE__ ) );
 define( 'JH_PATH', plugin_dir_path( __FILE__ ) );
-define( 'JH_VERSION', '1.7.2' );
+define( 'JH_VERSION', '1.7.3' );
 
 // Init Hook
 add_action( 'init', 'jh_disabled_init_global_plugin' );

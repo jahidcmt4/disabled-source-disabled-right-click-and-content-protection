@@ -28,59 +28,69 @@ if( class_exists( 'CSF' ) ) {
       'id'    => 'disabled-content-select',
       'type'  => 'switcher',
       'title' => __( 'Disable Content Copy', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => esc_html__( 'If enabled, users will not be able to copy text from your website.', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true,
     ),
     array(
       'id'    => 'disabled-right-click',
       'type'  => 'switcher',
       'title' => __( 'Disable Right Click', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => esc_html__( 'Turn on to disable right-click actions across your website.', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true,
     ),
     array(
       'id'    => 'disabled-img-drag',
       'type'  => 'switcher',
       'title' => __( 'Disable Images Dragging', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => esc_html__( 'Prevents users from dragging or saving images from your site.', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true
     ),
     array(
       'id'    => 'disabled-ct-u',
       'type'  => 'switcher',
       'title' => __( 'Disable Source (CTRL+U)', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => esc_html__( 'Blocks viewing page source using keyboard shortcuts.', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true,
     ),
     array(
       'id'    => 'disabled-ct-s',
       'type'  => 'switcher',
       'title' => __( 'Disable Save (CTRL+S)', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => esc_html__( 'Prevents saving the webpage using keyboard shortcuts.', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true
     ),
     array(
       'id'    => 'disabled-ct-p',
       'type'  => 'switcher',
-      'title' => __( 'Disable Print Preview (CTRL+P)', 'disabled-source-disabled-right-click-and-content-protection' )
+      'title' => __( 'Disable Print Preview (CTRL+P)', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => esc_html__( 'Disable printing or print preview of your website pages.', 'disabled-source-disabled-right-click-and-content-protection' )
     ),
     array(
       'id'    => 'disabled-f12',
       'type'  => 'switcher',
       'title' => __( 'Disable F12', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => esc_html__( 'Blocks the F12 key used to open developer tools.', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true,
     ),
     array(
       'id'    => 'disabled-ct-st-i',
       'type'  => 'switcher',
       'title' => __( 'Disable Ctrl+Shift+I and Ctrl+I', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => esc_html__( 'Prevents opening developer tools using keyboard shortcuts.', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true,
     ),
     array(
       'id'    => 'disabled-ct-st-j',
       'type'  => 'switcher',
       'title' => __( 'Disable Ctrl+Shift+J and Ctrl+J', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => esc_html__( 'Blocks access to the browser console via keyboard shortcuts.', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true,
     ),
     array(
       'id'    => 'disabled-ct-st-c',
       'type'  => 'switcher',
       'title' => __( 'Disable Ctrl+Shift+C and Ctrl+C', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => esc_html__( 'Prevents copying content and inspecting elements via keyboard.', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true,
     ),
 
@@ -96,6 +106,7 @@ if( class_exists( 'CSF' ) ) {
         'id'    => 'disabled-notification-status',
         'type'  => 'switcher',
         'title' => __( 'Notification Status', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'If enabled, users will see a notification message when an action is restricted.', 'disabled-source-disabled-right-click-and-content-protection' ),
         'default' => false,
       ),
       array(
@@ -148,6 +159,7 @@ if( class_exists( 'CSF' ) ) {
       'id'    => 'disabled-comments',
       'type'  => 'switcher',
       'title' => __( 'Disable Comments', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => esc_html__( 'If you turn on this setting, comments will be disabled on all posts across your website.', 'disabled-source-disabled-right-click-and-content-protection' ),
       ),
     )
   ) );
@@ -403,6 +415,7 @@ if( class_exists( 'CSF' ) ) {
         'id'    => 'disable-pages',
         'type'  => 'select',
         'title' => __( 'Block By Pages', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Select specific pages where the restrictions should be applied. Leave empty to apply to all pages.', 'disabled-source-disabled-right-click-and-content-protection' ),
         'options'     => function_exists( 'disable_get_all_pages' ) ? disable_get_all_pages() : '',
         'chosen'      => true,
         'multiple'    => true,
@@ -419,6 +432,7 @@ if( class_exists( 'CSF' ) ) {
         'id'    => 'disable-roles',
         'type'  => 'checkbox',
         'title' => __( 'Disable By Roles', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Choose user roles for which the restrictions will be enabled.', 'disabled-source-disabled-right-click-and-content-protection' ),
         'options' => function_exists( 'disable_get_all_author_roles' ) ? disable_get_all_author_roles() : '',
         'default' => 'customer'
       ),
@@ -433,6 +447,7 @@ if( class_exists( 'CSF' ) ) {
         'id'    => 'disable-post-type',
         'type'  => 'select',
         'title' => __( 'Disable By Post Type', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Select post types where the restrictions should apply. Leave empty to apply to all post types.', 'disabled-source-disabled-right-click-and-content-protection' ),
         'options' => function_exists( 'disable_get_all_post_type' ) ? disable_get_all_post_type() : '',
         'chosen'      => true,
         'multiple'    => true,
