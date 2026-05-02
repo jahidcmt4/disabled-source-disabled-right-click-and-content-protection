@@ -363,7 +363,7 @@ if( class_exists( 'CSF' ) ) {
   // Remove the admin's own country so they cannot accidentally block themselves
   if ( function_exists( 'jh_get_admin_country_code' ) ) {
     $jh_admin_country = jh_get_admin_country_code();
-    if ( ! empty( $jh_admin_country ) ) {
+    if ( ! empty( $jh_admin_country ) && isset( $jh_country_options[ $jh_admin_country ] ) ) {
       unset( $jh_country_options[ $jh_admin_country ] );
     }
   }
