@@ -1,8 +1,6 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-$badge_up     = '<div class="disable-up-badge"><span class="disable-upcoming">' .__("Upcoming", "disabled-source-disabled-right-click-and-content-protection"). '</span></div>';
-
 if( class_exists( 'CSF' ) ) {
 
   $prefix = 'jh_disabled_option';
@@ -452,6 +450,177 @@ if( class_exists( 'CSF' ) ) {
         'chosen'      => true,
         'multiple'    => true,
         'placeholder' => "If left empty, it will affect all post type.",
+      ),
+    )
+  ) );
+
+  // Watermark Images Protection
+  CSF::createSection( $prefix, array(
+    'title'  => esc_html__( 'Watermark Images', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'class' => 'jh-pro-feature',
+    'fields' => array(
+      array(
+        'id'    => 'images-watermark',
+        'type'  => 'switcher',
+        'title' => esc_html__( 'Images Watermark', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Enable this option to add a text watermark to your website images.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => false
+      ),
+      array(
+        'id'    => 'watermark-text',
+        'title' => esc_html__( 'Watermark Text', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Enter the text that will appear as a watermark on images.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'type'  => 'text',
+        'dependency' => array( 
+          array( 'images-watermark', '==', 'true' )
+        ),
+      ),
+    )
+  ) );
+
+  // Disable Rest API Protection
+  CSF::createSection( $prefix, array(
+    'title'  => esc_html__( 'Disable Rest API', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'class' => 'jh-pro-feature',
+    'fields' => array(
+      array(
+        'id'    => 'rest-api',
+        'type'  => 'switcher',
+        'title' => esc_html__( 'Disable Rest API', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Turn on to block access to the WordPress REST API.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => false
+      ),
+    )
+  ) );
+
+  // Disable CDN
+  CSF::createSection( $prefix, array(
+    'title'  => esc_html__( 'Disable CDN', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'class' => 'jh-pro-feature',
+    'fields' => array(
+      array(
+        'id'    => 'disable-cdn',
+        'type'  => 'switcher',
+        'title' => esc_html__( 'Disable CDN', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Enable this option to block content delivery through CDN services.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => false
+      ),
+    )
+  ) );
+
+  // Page Block by Password
+  CSF::createSection( $prefix, array(
+    'title'  => esc_html__( 'Page Blocker', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'class' => 'jh-pro-feature',
+    'fields' => array(
+      array(
+        'id'    => 'page-pass',
+        'type'  => 'switcher',
+        'title' => esc_html__( 'Page Blocker', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Enable password protection for pages on your website.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => false
+      ),
+      array(
+        'id'          => 'page-pass-type',
+        'type'        => 'select',
+        'title'       => esc_html__( 'Page Blocker Type', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Choose whether to protect all pages or selected individual pages.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'options'     => array(
+          'all'  => esc_html__( 'All Pages', 'disabled-source-disabled-right-click-and-content-protection' ),
+          'individual'  => esc_html__( 'individual', 'disabled-source-disabled-right-click-and-content-protection' ),
+        ),
+        'default'     => 'all',
+        'dependency' => array( 'page-pass', '==', 'true' ),
+      ),
+      array(
+        'id'    => 'disable_username',
+        'title' => esc_html__( 'Username', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Set the username required to access all protected pages.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'type'  => 'text',
+        'dependency' => array( 
+          array( 'page-pass', '==', 'true' ),
+          array('page-pass-type', '==', 'all' )
+        ),
+      ),
+      array(
+        'id'    => 'disable_password',
+        'title' => esc_html__( 'Password', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Set the password required to access all protected pages.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'type'  => 'text',
+        'dependency' => array( 
+          array( 'page-pass', '==', 'true' ),
+          array('page-pass-type', '==', 'all' )
+        ),
+      ),
+      array(
+        'id'     => 'disabled_by_pass',
+        'type'   => 'repeater',
+        'title'  => esc_html__( 'Block by Password', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Add individual pages with separate username and password protection.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'dependency' => array( 
+          array( 'page-pass', '==', 'true' ),
+          array('page-pass-type', '==', 'individual' )
+        ),
+        'fields' => array(
+          array(
+            'id'    => 'disable-page',
+            'type'  => 'select',
+            'title' => esc_html__( 'Page', 'disabled-source-disabled-right-click-and-content-protection' ),
+            'subtitle' => esc_html__( 'Select the page you want to protect.', 'disabled-source-disabled-right-click-and-content-protection' ),
+            'options'     => 'pages',
+            'query_args'  => array(
+              'posts_per_page' => -1
+            ),
+            'chosen'      => true,
+          ),
+          array(
+            'id'    => 'username',
+            'title' => esc_html__( 'Username', 'disabled-source-disabled-right-click-and-content-protection' ),
+            'subtitle' => esc_html__( 'Enter the username for this page.', 'disabled-source-disabled-right-click-and-content-protection' ),
+            'type'  => 'text'
+          ),
+          array(
+            'id'    => 'password',
+            'title' => esc_html__( 'Password', 'disabled-source-disabled-right-click-and-content-protection' ),
+            'subtitle' => esc_html__( 'Enter the password for this page.', 'disabled-source-disabled-right-click-and-content-protection' ),
+            'type'  => 'text'
+          )
+        )
+      ),
+    )
+  ) );
+
+  // Hide Login
+  CSF::createSection( $prefix, array(
+    'title'  => esc_html__( 'Hide Login', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'class' => 'jh-pro-feature',
+    'fields' => array(
+      array(
+        'type'    => 'notice',
+        'style'   => 'danger',
+        'class'   => 'jh_admin_feature_notice',
+        'content' => esc_html__( "Note: Reload the page after saving changes in this tab, otherwise the login slug may not update.", 'disabled-source-disabled-right-click-and-content-protection' ),
+      ),
+      array(
+        'id'    => 'hide-login',
+        'type'  => 'switcher',
+        'title' => esc_html__( 'Hide Login', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Enable this option to change the default WordPress login URL to a custom slug.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => false
+      ),
+      array(
+        'type'    => 'notice',
+        'style'   => 'danger',
+        'class'   => 'jh_admin_feature_notice',
+        'content' => esc_html__( "Note: Do not use special characters. Use a single word only, for example: newlogin.", 'disabled-source-disabled-right-click-and-content-protection' ),
+        'dependency' => array( 'hide-login', '==', 'true' ),
+      ),
+      array(
+        'id'    => 'login-slug',
+        'title' => esc_html__( 'Login Slug', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => esc_html__( 'Enter the new slug that will replace wp-login.php and wp-admin for your login page.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'type'  => 'text',
+        'dependency' => array( 'hide-login', '==', 'true' ),
       ),
     )
   ) );

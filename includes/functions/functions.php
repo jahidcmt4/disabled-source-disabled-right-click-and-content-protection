@@ -9,6 +9,7 @@ defined( 'ABSPATH' ) || exit;
 add_action('admin_enqueue_scripts', 'disabled_source_admin_page_script');
 function disabled_source_admin_page_script(){
 	wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/admin/assets/css/admin.css', false, JH_VERSION);
+	wp_enqueue_script( 'disabled-source-admin-js', JH_URL.'includes/admin/assets/js/admin.js', array('jquery'), JH_VERSION, true );
 }
 
 

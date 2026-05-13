@@ -129,3 +129,93 @@
     margin-bottom: 15px;
   }
 }
+/* PRO Feature Badge */
+.jh-pro-feature {
+    position: relative;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    background: #ffffff !important;
+    margin-top: 20px !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.jh-pro-feature:before {
+    content: "PRO";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 12px;
+    border-radius: 30px;
+    letter-spacing: 1px;
+    z-index: 99;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+    text-transform: uppercase;
+}
+
+.jh-pro-feature:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #6366f1, #a855f7);
+    border-radius: 4px 0 0 4px;
+}
+
+.jh-pro-feature .csf-section-title {
+    padding-right: 70px !important;
+}
+
+/* Upgrade Button Styling */
+.jh-pro-buy-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    color: #ffffff !important;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.jh-pro-buy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+    color: #ffffff !important;
+}
+
+.jh-pro-buy-btn:after {
+    content: "→";
+    margin-left: 8px;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.jh-pro-buy-btn:hover:after {
+    transform: translateX(4px);
+}
+
+/* Ensure section has padding for the button */
+.jh-pro-feature {
+    padding-bottom: 70px !important;
+}
