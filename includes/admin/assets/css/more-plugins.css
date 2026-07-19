@@ -1,0 +1,438 @@
+/* WordPress Admin Wrapper override */
+.wrap.jh-more-plugins-wrap {
+    margin: 20px 20px 0 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: #1e293b;
+}
+
+/* Header Container */
+.jh-more-plugins-header {
+    position: relative;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 16px;
+    padding: 50px 40px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.jh-more-plugins-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+    pointer-events: none;
+}
+
+.jh-more-plugins-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, rgba(168, 85, 247, 0) 70%);
+    pointer-events: none;
+}
+
+.jh-header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.jh-badge-top {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.15);
+    color: #a5b4fc;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.jh-header-content h1 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.5px;
+}
+
+.jh-header-content p {
+    color: #94a3b8;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Grid Layout */
+.jh-plugins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* Plugin Card */
+.jh-plugin-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.jh-plugin-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border-color: #cbd5e1;
+}
+
+/* Active Glow card highlight */
+.jh-plugin-card.jh-status-active {
+    border-color: rgba(34, 197, 94, 0.3);
+}
+.jh-plugin-card.jh-status-active:hover {
+    box-shadow: 0 20px 25px -5px rgba(34, 197, 94, 0.08), 0 8px 10px -6px rgba(34, 197, 94, 0.08);
+    border-color: rgba(34, 197, 94, 0.5);
+}
+
+/* Card Header */
+.jh-plugin-card-header {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    position: relative;
+}
+
+.jh-plugin-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.plugin-icon-svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 2.2;
+}
+
+.jh-plugin-title-box {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.jh-plugin-cat {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.jh-plugin-title-box h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.jh-plugin-status-badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.jh-plugin-status-badge.jh-status-active {
+    background-color: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.jh-plugin-status-badge.jh-status-inactive {
+    background-color: #fef9c3;
+    color: #854d0e;
+    border: 1px solid #fef08a;
+}
+
+.jh-plugin-status-badge.jh-status-not-installed {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+/* Card Body */
+.jh-plugin-card-body {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.jh-plugin-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #475569;
+    margin: 0 0 20px 0;
+}
+
+.jh-plugin-features {
+    margin-top: auto;
+}
+
+.jh-plugin-features h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748b;
+    margin: 0 0 10px 0;
+    letter-spacing: 0.5px;
+}
+
+.jh-plugin-features ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.jh-plugin-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: #334155;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.jh-plugin-features li:last-child {
+    margin-bottom: 0;
+}
+
+.feature-check {
+    width: 16px;
+    height: 16px;
+    color: #22c55e;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Card Footer */
+.jh-plugin-card-footer {
+    padding: 20px 24px 24px 24px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #fafafa;
+}
+
+.jh-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    line-height: 1.2;
+    border: 1px solid transparent;
+}
+
+.jh-btn-install {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+    width: 60%;
+}
+
+.jh-btn-install:hover {
+    background-color: #f8fafc;
+    border-color: #94a3b8;
+    color: #0f172a;
+}
+
+.jh-btn-activate {
+    background-color: #6366f1;
+    color: #ffffff;
+    width: 60%;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+}
+
+.jh-btn-activate:hover {
+    background-color: #4f46e5;
+    color: #ffffff;
+    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.35);
+}
+
+.jh-btn-configure {
+    background-color: #22c55e;
+    color: #ffffff;
+    width: 60%;
+    box-shadow: 0 4px 10px rgba(34, 197, 94, 0.2);
+}
+
+.jh-btn-configure:hover {
+    background-color: #16a34a;
+    color: #ffffff;
+    box-shadow: 0 6px 15px rgba(34, 197, 94, 0.35);
+}
+
+.jh-btn-link {
+    color: #64748b;
+    background: transparent;
+    padding: 10px 12px;
+}
+
+.jh-btn-link:hover {
+    color: #0f172a;
+}
+
+.external-link-icon {
+    width: 14px;
+    height: 14px;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+}
+
+.jh-btn-link:hover .external-link-icon {
+    transform: translate(2px, -2px);
+}
+
+/* Footer Box Custom Development Banner */
+.jh-more-plugins-footer-box {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.jh-footer-gradient-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+}
+
+.jh-footer-box-content {
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.jh-footer-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #f1f5f9;
+    color: #4f46e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.jh-footer-logo svg {
+    width: 24px;
+    height: 24px;
+}
+
+.jh-footer-text {
+    flex-grow: 1;
+    min-width: 250px;
+}
+
+.jh-footer-text h3 {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.jh-footer-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.jh-footer-actions {
+    flex-shrink: 0;
+}
+
+.jh-btn-footer-primary {
+    background-color: #0f172a;
+    color: #ffffff;
+    border: 1px solid #0f172a;
+}
+
+.jh-btn-footer-primary:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+/* Animations & Responsive design */
+@media (max-width: 768px) {
+    .jh-more-plugins-header {
+        padding: 30px 20px;
+    }
+    .jh-header-content h1 {
+        font-size: 24px;
+    }
+    .jh-header-content p {
+        font-size: 14px;
+    }
+    .jh-footer-box-content {
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .jh-footer-actions {
+        width: 100%;
+    }
+    .jh-btn-footer-primary {
+        width: 100%;
+    }
+}
