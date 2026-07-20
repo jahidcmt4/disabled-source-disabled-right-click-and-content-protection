@@ -101,7 +101,7 @@ function jh_disabled_more_plugins_render() {
             <div class="jh-header-content">
                 <span class="jh-badge-top"><?php esc_html_e('Exclusive Recommendations', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
                 <h1><?php esc_html_e('Expand Your WordPress Capabilities', 'disabled-source-disabled-right-click-and-content-protection' ); ?></h1>
-                <p><?php esc_html_e('Supercharge WooCommerce sales, harden login page security, and automate workflows with our hand-crafted, premium plugins.', 'disabled-source-disabled-right-click-and-content-protection' ); ?></p>
+                <p><?php esc_html_e('Supercharge WooCommerce sales, harden login page security, and automate workflows with our hand-crafted plugins.', 'disabled-source-disabled-right-click-and-content-protection' ); ?></p>
             </div>
         </div>
 
