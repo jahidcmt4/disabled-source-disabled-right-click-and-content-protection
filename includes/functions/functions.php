@@ -234,6 +234,7 @@ function jh_disable_notifcation_style(){
 			background-color: ' .esc_attr($jh_disabled_notifications['disabled-notify-background']). ' !important;
 			border-color: ' .esc_attr($jh_disabled_notifications['disabled-notify-background']). '!important;
 			color: ' .esc_attr($jh_disabled_notifications['disabled-notify-color']). '!important;
+			background-position: 3px 10px !important;
 		}
 		</style>';
 	}
