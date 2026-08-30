@@ -1,31 +1,38 @@
-.disable-up-badge{
-    display: inline-block;
-    color: #fff;
-    padding: 3px 10px 3px 10px;
-    border-radius: 3px;
-    text-align: center;
-    margin: 5px 0 0 0;
-    font-size: 12px;
-    font-weight: 600;
-    background: #006600;
+.disable-up-badge {
+  display: inline-block;
+  color: #fff;
+  padding: 3px 10px 3px 10px;
+  border-radius: 3px;
+  text-align: center;
+  margin: 5px 0 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  background: #006600;
 }
-.jh-warning-title .csf-subtitle-text{
-    color: red;
+
+.jh-warning-title .csf-subtitle-text {
+  color: red;
 }
 
 
 /* Review admin notice CSS */
-
-.jh_disable_review_notice p{
-    padding-right: 20px;
+.csf-buttons .button {
+  min-height: auto;
 }
+
+.jh_disable_review_notice p {
+  padding-right: 20px;
+}
+
 .jh_disable_review_notice ul li {
   display: inline-block;
 }
+
 .jh_disable_review_notice ul {
-    margin: 0;
-    margin-bottom: 5px;
+  margin: 0;
+  margin-bottom: 5px;
 }
+
 .jh_disable_review_notice ul li a {
   text-decoration: none;
   padding: 7px;
@@ -46,46 +53,55 @@
 .jh_disable_review_notice ul li a:hover {
   color: #218ea6;
 }
+
 .jh_disable_review_notice {
-    position: relative;
+  position: relative;
 }
+
 .jh_disable_review_notice .review_notice_dismiss {
-    padding: 2px;
+  padding: 2px;
 }
 
 /* admin feature notice */
-.jh_admin_feature_notice .csf-notice-danger{
+.jh_admin_feature_notice .csf-notice-danger {
   background-color: #ffdddd !important;
 }
+
 .jh-support-notice-box {
   margin-left: 0px;
   border-left: 1px solid #c3c4c7;
   padding-right: 0px !important;
 }
-.jh-support-notice-box .jh-link-boxs{
+
+.jh-support-notice-box .jh-link-boxs {
   display: flex;
   gap: 12px;
 }
-.jh-support-notice-box .jh-link-boxs .jh-link-box{
+
+.jh-support-notice-box .jh-link-boxs .jh-link-box {
   background-color: #fff;
-  border-radius:10px;
+  border-radius: 10px;
   margin-bottom: 0;
   width: calc(33% - 12px);
 }
-.jh-support-notice-box .jh-link-boxs .jh-link-box a{
+
+.jh-support-notice-box .jh-link-boxs .jh-link-box a {
   display: block;
   padding: 8px 8px 12px 8px;
   text-decoration: none;
   text-align: center;
 }
-.jh-support-notice-box .jh-link-boxs .jh-link-box a:focus{
+
+.jh-support-notice-box .jh-link-boxs .jh-link-box a:focus {
   outline: none;
   box-shadow: none;
 }
-.jh-support-notice-box .jh-link-boxs .jh-link-box a img{
+
+.jh-support-notice-box .jh-link-boxs .jh-link-box a img {
   margin-bottom: 15px;
 }
-.jh-support-notice-box .jh-link-boxs .jh-link-box a h3{
+
+.jh-support-notice-box .jh-link-boxs .jh-link-box a h3 {
   font-size: 20px;
   margin: 0;
   color: #000;
@@ -93,14 +109,16 @@
   line-height: 24px;
   margin-bottom: 15px;
 }
-.jh-support-notice-box .jh-link-boxs .jh-link-box a p{
+
+.jh-support-notice-box .jh-link-boxs .jh-link-box a p {
   font-size: 15px;
   margin: 0;
   color: #000;
   display: block;
   line-height: 24px;
 }
-.jh-support-notice-box .jh-link-boxs .jh-link-box a span{
+
+.jh-support-notice-box .jh-link-boxs .jh-link-box a span {
   margin-bottom: 0;
   display: inline-block;
   border: 2px solid #003c79;
@@ -113,109 +131,112 @@
   line-height: 1;
   transition: .3s all ease;
 }
-.jh-support-notice-box .jh-link-boxs .jh-link-box a span:hover{
+
+.jh-support-notice-box .jh-link-boxs .jh-link-box a span:hover {
   background-color: #003c79;
   color: #fff;
 }
 
 /* Responsive */
 
-@media all and (max-width: 767px){
-  .jh-support-notice-box .jh-link-boxs{
+@media all and (max-width: 767px) {
+  .jh-support-notice-box .jh-link-boxs {
     flex-wrap: wrap;
   }
+
   .jh-support-notice-box .jh-link-boxs .jh-link-box {
     width: 100%;
     margin-bottom: 15px;
   }
 }
+
 /* PRO Feature Badge */
 .jh-pro-feature {
-    position: relative;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 12px !important;
-    background: #ffffff !important;
-    margin-top: 20px !important;
-    margin-bottom: 25px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
-    overflow: hidden;
-    padding: 10px 0;
+  position: relative;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  margin-top: 20px !important;
+  margin-bottom: 25px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+  overflow: hidden;
+  padding: 10px 0;
 }
 
 .jh-pro-feature:before {
-    content: "PRO";
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-    color: #fff;
-    font-size: 10px;
-    font-weight: 800;
-    padding: 3px 12px;
-    border-radius: 30px;
-    letter-spacing: 1px;
-    z-index: 99;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    pointer-events: none;
-    text-transform: uppercase;
+  content: "PRO";
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  z-index: 99;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  text-transform: uppercase;
 }
 
 .jh-pro-feature:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(to bottom, #6366f1, #a855f7);
-    border-radius: 4px 0 0 4px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #6366f1, #a855f7);
+  border-radius: 4px 0 0 4px;
 }
 
 .jh-pro-feature .csf-section-title {
-    padding-right: 70px !important;
+  padding-right: 70px !important;
 }
 
 /* Upgrade Button Styling */
 .jh-pro-buy-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-    color: #ffffff !important;
-    padding: 10px 24px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none !important;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 100;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: inline-flex;
-    align-items: center;
-    line-height: 1;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  color: #ffffff !important;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none !important;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .jh-pro-buy-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
-    background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
-    color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+  background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+  color: #ffffff !important;
 }
 
 .jh-pro-buy-btn:after {
-    content: "→";
-    margin-left: 8px;
-    font-size: 16px;
-    transition: transform 0.3s ease;
+  content: "→";
+  margin-left: 8px;
+  font-size: 16px;
+  transition: transform 0.3s ease;
 }
 
 .jh-pro-buy-btn:hover:after {
-    transform: translateX(4px);
+  transform: translateX(4px);
 }
 
 /* Ensure section has padding for the button */
 .jh-pro-feature {
-    padding-bottom: 70px !important;
+  padding-bottom: 70px !important;
 }
