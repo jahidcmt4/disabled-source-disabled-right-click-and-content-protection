@@ -410,7 +410,7 @@
 
 .jh-magic-btn-copy {
 	background: #0f172a;
-	color: #23282d;
+	color: #fff;
 	border: 1px solid #475569;
 }
 
@@ -541,7 +541,7 @@
 }
 
 .jh-ml-user-name {
-	color: #f8fafc;
+	color: #23282d;
 	display: block;
 }
 
@@ -553,8 +553,8 @@
 }
 
 .jh-ml-role-chip {
-	background: #eee;
-	color: #cbd5e1;
+	background: #0f172a;
+	color: #fff;
 	font-size: 11px;
 	padding: 2px 7px;
 	border-radius: 4px;
@@ -568,7 +568,7 @@
 }
 
 .jh-ml-date {
-	color: #cbd5e1;
+	color: #999;
 }
 
 .jh-ml-soon {
