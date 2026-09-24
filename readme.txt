@@ -30,6 +30,7 @@ The plugin is called copy content protection. It is very easy to use and install
 * Disable CDN (Pro)
 * Page Block by Password (Pro)
 * Change Login Slug (Pro)
+* Magic Login Link (Pro)
 * Disable F12
 * Disable Ctrl+I
 * Disable Ctrl+Shift+I
@@ -160,7 +161,7 @@ No.
 
 * Added: Compatibility with WooCommerce 11.1.1
 * Added: Compatibility with Elementor 4.2.4
-* Added: Magic Login feature
+* Added: Magic Login Link feature
 
 = 1.8.1 =
 
