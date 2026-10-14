@@ -41,6 +41,10 @@ if ( file_exists( JH_PATH . 'includes/admin/framework/codestar-framework.php' ) 
 * Global Option Page
 */
 function jh_disabled_init_global_plugin() {
+  if ( ! is_admin() ) {
+    return;
+  }
+
   if (class_exists('CTBLOCK_PRO_INIT')) {
     if ( file_exists( CTBLOCK_PRO_PATH . 'includes/admin/options/global.php' ) ) {
       require_once CTBLOCK_PRO_PATH . 'includes/admin/options/global.php';
