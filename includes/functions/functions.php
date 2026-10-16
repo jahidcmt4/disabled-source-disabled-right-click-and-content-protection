@@ -155,14 +155,12 @@ function jh_get_admin_country_code() {
 	}
 
 	$admin_ip = jh_getvisitor_IP();
-	if ( empty( $admin_ip ) || in_array( $admin_ip, array( '127.0.0.1', '::1' ), true ) ) {
-		return '';
-	}
-	if ( filter_var( $admin_ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE ) === false ) {
-		return '';
-	}
+	$is_local = empty( $admin_ip ) || in_array( $admin_ip, array( '127.0.0.1', '::1' ), true ) || filter_var( $admin_ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE ) === false;
 
-	$response = wp_remote_get( 'https://ip-api.com/json/' . rawurlencode( $admin_ip ), array(
+	// ip-api.com free tier requires http:// (https returns SSL unavailable)
+	$api_url = 'http://ip-api.com/json/' . ( $is_local ? '' : rawurlencode( $admin_ip ) );
+
+	$response = wp_remote_get( $api_url, array(
 		'timeout'     => 3,
 		'httpversion' => '1.1',
 		'headers'     => array( 'Accept' => 'application/json' ),
@@ -196,22 +194,25 @@ function jh_get_visitor_country_code() {
 		}
 	}
 
-	// 2. Cookie check (Prevents repeat API requests on every page hit for the same visitor)
-	if ( ! empty( $_COOKIE['jh_visitor_country_code'] ) && strlen( $_COOKIE['jh_visitor_country_code'] ) === 2 ) {
-		return strtoupper( sanitize_text_field( wp_unslash( $_COOKIE['jh_visitor_country_code'] ) ) );
-	}
-
-	// 3. Fallback to API if not local IP
 	$visitor_ip = jh_getvisitor_IP();
-	if ( empty( $visitor_ip ) || in_array( $visitor_ip, array( '127.0.0.1', '::1' ), true ) ) {
-		return '';
-	}
-	if ( filter_var( $visitor_ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE ) === false ) {
-		return '';
+	$ip_hash    = substr( md5( $visitor_ip ), 0, 8 );
+
+	// 2. Cookie check (Bound to IP hash so switching VPN country invalidates immediately)
+	if ( ! empty( $_COOKIE['jh_visitor_country_code'] ) ) {
+		$cookie_parts = explode( ':', sanitize_text_field( wp_unslash( $_COOKIE['jh_visitor_country_code'] ) ) );
+		if ( count( $cookie_parts ) === 2 && $cookie_parts[0] === $ip_hash && strlen( $cookie_parts[1] ) === 2 ) {
+			return strtoupper( $cookie_parts[1] );
+		}
 	}
 
-	$response = wp_remote_get( 'https://ip-api.com/json/' . rawurlencode( $visitor_ip ), array(
-		'timeout'     => 2,
+	// 3. Fallback to API (ip-api.com free tier requires http://)
+	$is_local = empty( $visitor_ip ) || in_array( $visitor_ip, array( '127.0.0.1', '::1' ), true ) || filter_var( $visitor_ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE ) === false;
+
+	// When testing on localhost with VPN, calling without IP allows ip-api.com to detect the machine's active VPN IP
+	$api_url = 'http://ip-api.com/json/' . ( $is_local ? '' : rawurlencode( $visitor_ip ) );
+
+	$response = wp_remote_get( $api_url, array(
+		'timeout'     => 3,
 		'httpversion' => '1.1',
 		'headers'     => array( 'Accept' => 'application/json' ),
 	) );
@@ -226,9 +227,10 @@ function jh_get_visitor_country_code() {
 	$country_code = ( ! empty( $data['countryCode'] ) && strlen( $data['countryCode'] ) === 2 ) ? strtoupper( sanitize_text_field( $data['countryCode'] ) ) : '';
 
 	if ( ! empty( $country_code ) && ! headers_sent() ) {
-		$cookie_path = defined( 'COOKIEPATH' ) && COOKIEPATH ? COOKIEPATH : '/';
+		$cookie_val    = $ip_hash . ':' . $country_code;
+		$cookie_path   = defined( 'COOKIEPATH' ) && COOKIEPATH ? COOKIEPATH : '/';
 		$cookie_domain = defined( 'COOKIE_DOMAIN' ) ? COOKIE_DOMAIN : '';
-		@setcookie( 'jh_visitor_country_code', $country_code, time() + DAY_IN_SECONDS, $cookie_path, $cookie_domain, is_ssl(), true );
+		@setcookie( 'jh_visitor_country_code', $cookie_val, time() + DAY_IN_SECONDS, $cookie_path, $cookie_domain, is_ssl(), true );
 	}
 
 	return $country_code;
