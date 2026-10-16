@@ -160,6 +160,7 @@ No.
 = 1.8.3 =
 
 * Updated: Package Update
+* Performance: Fixed excessive transient accumulation in wp_options table.
 
 = 1.8.2 =
 
