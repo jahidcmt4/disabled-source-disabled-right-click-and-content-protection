@@ -68,7 +68,7 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
       do_action( 'csf_init' );
 
       // Setup textdomain
-      self::textdomain();
+      add_action( 'init', array( __CLASS__, 'textdomain' ), 5 );
 
       add_action( 'after_setup_theme', array( 'CSF', 'setup' ) );
       add_action( 'init', array( 'CSF', 'setup' ) );
