@@ -1,6 +1,6 @@
-/* Early Black Friday promo: copy coupon + snooze/dismiss */
+/* Early Black Friday deal: copy coupon + snooze/dismiss */
 ( function () {
-    if ( typeof jhdp_promo === 'undefined' ) {
+    if ( typeof jhdp_deal === 'undefined' ) {
         return;
     }
 
@@ -20,33 +20,33 @@
     }
 
     document.addEventListener( 'click', function ( e ) {
-        var coupon = e.target.closest( '.jhdp-promo-coupon' );
+        var coupon = e.target.closest( '.jhdp-deal-coupon' );
         if ( coupon ) {
-            var label = coupon.querySelector( '.jhdp-promo-coupon-copy' );
+            var label = coupon.querySelector( '.jhdp-deal-coupon-copy' );
             var original = label.textContent;
             copyText( coupon.getAttribute( 'data-code' ) ).then( function () {
-                label.textContent = jhdp_promo.copied;
+                label.textContent = jhdp_deal.copied;
                 setTimeout( function () { label.textContent = original; }, 1800 );
             } );
             return;
         }
 
-        var btn = e.target.closest( '.jhdp-promo-notice [data-type]' );
+        var btn = e.target.closest( '.jhdp-deal-notice [data-type]' );
         if ( ! btn ) {
             return;
         }
 
-        var notice = btn.closest( '.jhdp-promo-notice' );
+        var notice = btn.closest( '.jhdp-deal-notice' );
         notice.style.transition = 'opacity .2s';
         notice.style.opacity = '0';
         setTimeout( function () { notice.remove(); }, 200 );
 
         var body = new URLSearchParams();
-        body.append( 'action', 'jhdp_promo_dismiss' );
-        body.append( 'nonce', jhdp_promo.nonce );
+        body.append( 'action', 'jhdp_deal_dismiss' );
+        body.append( 'nonce', jhdp_deal.nonce );
         body.append( 'type', btn.getAttribute( 'data-type' ) );
 
-        fetch( jhdp_promo.ajax_url, {
+        fetch( jhdp_deal.ajax_url, {
             method: 'POST',
             credentials: 'same-origin',
             body: body

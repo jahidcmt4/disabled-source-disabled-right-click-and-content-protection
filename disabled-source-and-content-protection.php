@@ -73,15 +73,12 @@ if ( file_exists( JH_PATH . 'includes/functions/notice.php' ) ) {
     require_once JH_PATH . 'includes/functions/notice.php';
 }
 
-/**
- * Seasonal promo notice (Black Friday)
-*/
 
 // Optional: never let a missing file break the plugin.
-if ( file_exists( JH_PATH . 'includes/functions/class-jhdp-promo-notice.php' ) ) {
-  require_once JH_PATH . 'includes/functions/class-jhdp-promo-notice.php';
-  add_action( 'plugins_loaded', array( 'JHDP_Promo_Notice', 'init' ) );
-  register_activation_hook( __FILE__, array( 'JHDP_Promo_Notice', 'on_activate' ) );
+if ( file_exists( JH_PATH . 'includes/functions/class-jhdp-deal-notice.php' ) ) {
+  require_once JH_PATH . 'includes/functions/class-jhdp-deal-notice.php';
+  add_action( 'plugins_loaded', array( 'JHDP_Deal_Notice', 'init' ) );
+  register_activation_hook( __FILE__, array( 'JHDP_Deal_Notice', 'on_activate' ) );
 }
 
 /**

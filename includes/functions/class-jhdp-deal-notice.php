@@ -1,19 +1,8 @@
 <?php
-/**
- * Seasonal promo notice (Black Friday).
- *
- * - Shown only to admins on the free version (hidden when Pro is active).
- * - Admin notice on the Dashboard screen, with "Remind me later" (snooze)
- *   and "Don't show again" (permanent, per user).
- * - A non-dismissible banner on the plugin's own settings page.
- * - Automatically active only inside the campaign date window.
- *
- * Preview any time (admins only): add ?jhdp_promo_preview=1 to an admin URL.
- */
 
 defined( 'ABSPATH' ) || exit;
 
-class JHDP_Promo_Notice {
+class JHDP_Deal_Notice {
 
     /* ---------- Campaign config: edit these for each campaign ---------- */
     const CAMPAIGN          = 'bf2026';
@@ -26,9 +15,9 @@ class JHDP_Promo_Notice {
     const MIN_INSTALL_DAYS  = 3;
     /* ------------------------------------------------------------------- */
 
-    const META_KEY      = 'jhdp_promo_state';
+    const META_KEY      = 'jhdp_deal_state';
     const INSTALL_OPT   = 'jhdp_installed_at';
-    const NONCE         = 'jhdp-promo-nonce';
+    const NONCE         = 'jhdp-deal-nonce';
     const SETTINGS_SLUG = 'disabled-source-disabled-right-click-and-content-protection';
     const TD            = 'disabled-source-disabled-right-click-and-content-protection';
 
@@ -39,7 +28,7 @@ class JHDP_Promo_Notice {
         add_action( 'admin_notices',         [ $self, 'render_notice' ] );
         add_action( 'admin_enqueue_scripts', [ $self, 'enqueue_assets' ] );
         add_action( 'csf_options_before',    [ $self, 'render_settings_banner' ] );
-        add_action( 'wp_ajax_jhdp_promo_dismiss', [ $self, 'ajax_dismiss' ] );
+        add_action( 'wp_ajax_jhdp_deal_dismiss', [ $self, 'ajax_dismiss' ] );
     }
 
     /**
@@ -55,7 +44,7 @@ class JHDP_Promo_Notice {
     /* ======================= Conditions ======================= */
 
     private function is_preview() {
-        return isset( $_GET['jhdp_promo_preview'] ) && current_user_can( 'manage_options' ); // phpcs:ignore WordPress.Security.NonceVerification
+        return isset( $_GET['jhdp_deal_preview'] ) && current_user_can( 'manage_options' ); // phpcs:ignore WordPress.Security.NonceVerification
     }
 
     private function is_pro() {
@@ -144,15 +133,15 @@ class JHDP_Promo_Notice {
             return;
         }
 
-        $css = 'includes/admin/assets/css/promo.css';
-        $js  = 'includes/admin/assets/js/promo.js';
+        $css = 'includes/admin/assets/css/deal.css';
+        $js  = 'includes/admin/assets/js/deal.js';
         if ( ! file_exists( JH_PATH . $css ) || ! file_exists( JH_PATH . $js ) ) {
             return;
         }
 
-        wp_enqueue_style( 'jhdp-promo', JH_URL . $css, [], JH_VERSION . '.' . filemtime( JH_PATH . $css ) );
-        wp_enqueue_script( 'jhdp-promo', JH_URL . $js, [], JH_VERSION . '.' . filemtime( JH_PATH . $js ), true );
-        wp_localize_script( 'jhdp-promo', 'jhdp_promo', [
+        wp_enqueue_style( 'jhdp-deal', JH_URL . $css, [], JH_VERSION . '.' . filemtime( JH_PATH . $css ) );
+        wp_enqueue_script( 'jhdp-deal', JH_URL . $js, [], JH_VERSION . '.' . filemtime( JH_PATH . $js ), true );
+        wp_localize_script( 'jhdp-deal', 'jhdp_deal', [
             'ajax_url' => admin_url( 'admin-ajax.php' ),
             'nonce'    => wp_create_nonce( self::NONCE ),
             'copied'   => __( 'Copied!', 'disabled-source-disabled-right-click-and-content-protection' ),
@@ -192,7 +181,7 @@ class JHDP_Promo_Notice {
 
     private function render_howto() {
         ?>
-        <p class="jhdp-promo-howto">
+        <p class="jhdp-deal-howto">
             <?php
             /* translators: %s: coupon code */
             printf( esc_html__( 'How to redeem: copy %s, choose your plan, then apply the code in the coupon field at checkout before paying.', 'disabled-source-disabled-right-click-and-content-protection' ), '<strong>' . esc_html( self::COUPON ) . '</strong>' );
@@ -203,9 +192,9 @@ class JHDP_Promo_Notice {
 
     private function render_coupon() {
         ?>
-        <button type="button" class="jhdp-promo-coupon" data-code="<?php echo esc_attr( self::COUPON ); ?>" title="<?php esc_attr_e( 'Click to copy', 'disabled-source-disabled-right-click-and-content-protection' ); ?>">
-            <span class="jhdp-promo-coupon-code"><?php echo esc_html( self::COUPON ); ?></span>
-            <span class="jhdp-promo-coupon-copy"><?php esc_html_e( 'Copy', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
+        <button type="button" class="jhdp-deal-coupon" data-code="<?php echo esc_attr( self::COUPON ); ?>" title="<?php esc_attr_e( 'Click to copy', 'disabled-source-disabled-right-click-and-content-protection' ); ?>">
+            <span class="jhdp-deal-coupon-code"><?php echo esc_html( self::COUPON ); ?></span>
+            <span class="jhdp-deal-coupon-copy"><?php esc_html_e( 'Copy', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
         </button>
         <?php
     }
@@ -217,9 +206,9 @@ class JHDP_Promo_Notice {
 
     private function render_badge() {
         ?>
-        <div class="jhdp-promo-badge">
-            <span class="jhdp-promo-badge-num"><?php echo (int) self::DISCOUNT; ?>%</span>
-            <span class="jhdp-promo-badge-off"><?php esc_html_e( 'OFF', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
+        <div class="jhdp-deal-badge">
+            <span class="jhdp-deal-badge-num"><?php echo (int) self::DISCOUNT; ?>%</span>
+            <span class="jhdp-deal-badge-off"><?php esc_html_e( 'OFF', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
         </div>
         <?php
     }
@@ -232,26 +221,26 @@ class JHDP_Promo_Notice {
             ? __( 'Last chance · Black Friday Deal', 'disabled-source-disabled-right-click-and-content-protection' )
             : __( 'Black Friday Deal', 'disabled-source-disabled-right-click-and-content-protection' );
         ?>
-        <div class="notice jhdp-promo-notice" id="jhdp-promo-notice">
-            <button type="button" class="jhdp-promo-close" data-type="snooze" aria-label="<?php esc_attr_e( 'Remind me later', 'disabled-source-disabled-right-click-and-content-protection' ); ?>">&times;</button>
+        <div class="notice jhdp-deal-notice" id="jhdp-deal-notice">
+            <button type="button" class="jhdp-deal-close" data-type="snooze" aria-label="<?php esc_attr_e( 'Remind me later', 'disabled-source-disabled-right-click-and-content-protection' ); ?>">&times;</button>
 
             <?php $this->render_badge(); ?>
 
-            <div class="jhdp-promo-body">
-                <p class="jhdp-promo-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
-                <h3 class="jhdp-promo-title">
+            <div class="jhdp-deal-body">
+                <p class="jhdp-deal-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
+                <h3 class="jhdp-deal-title">
                     <?php
                     /* translators: %d: discount percentage */
                     printf( esc_html__( 'Get %d%% off Content Protection Pro', 'disabled-source-disabled-right-click-and-content-protection' ), (int) self::DISCOUNT );
                     ?>
                 </h3>
-                <p class="jhdp-promo-features"><?php esc_html_e( 'Image watermarks · Password-protected pages · Hide login URL · Magic login links · Disable REST API', 'disabled-source-disabled-right-click-and-content-protection' ); ?></p>
+                <p class="jhdp-deal-features"><?php esc_html_e( 'Image watermarks · Password-protected pages · Hide login URL · Magic login links · Disable REST API', 'disabled-source-disabled-right-click-and-content-protection' ); ?></p>
 
-                <div class="jhdp-promo-actions">
+                <div class="jhdp-deal-actions">
                     <?php $this->render_coupon(); ?>
-                    <a href="<?php echo esc_url( $this->upgrade_url() ); ?>" class="button button-primary jhdp-promo-cta"><?php $this->render_claim_label(); ?></a>
-                    <button type="button" class="button-link jhdp-promo-dismiss" data-type="snooze"><?php esc_html_e( 'Remind me later', 'disabled-source-disabled-right-click-and-content-protection' ); ?></button>
-                    <button type="button" class="button-link jhdp-promo-dismiss" data-type="dismiss"><?php esc_html_e( "Don't show again", 'disabled-source-disabled-right-click-and-content-protection' ); ?></button>
+                    <a href="<?php echo esc_url( $this->upgrade_url() ); ?>" class="button button-primary jhdp-deal-cta"><?php $this->render_claim_label(); ?></a>
+                    <button type="button" class="button-link jhdp-deal-dismiss" data-type="snooze"><?php esc_html_e( 'Remind me later', 'disabled-source-disabled-right-click-and-content-protection' ); ?></button>
+                    <button type="button" class="button-link jhdp-deal-dismiss" data-type="dismiss"><?php esc_html_e( "Don't show again", 'disabled-source-disabled-right-click-and-content-protection' ); ?></button>
                 </div>
                 <?php $this->render_howto(); ?>
             </div>
@@ -266,17 +255,17 @@ class JHDP_Promo_Notice {
             return;
         }
         ?>
-        <div class="jhdp-promo-banner">
+        <div class="jhdp-deal-banner">
             <?php $this->render_badge(); ?>
-            <div class="jhdp-promo-body">
-                <p class="jhdp-promo-eyebrow"><?php esc_html_e( 'Black Friday Deal', 'disabled-source-disabled-right-click-and-content-protection' ); ?></p>
-                <h3 class="jhdp-promo-title"><?php esc_html_e( 'Unlock every Pro protection feature this Black Friday', 'disabled-source-disabled-right-click-and-content-protection' ); ?></h3>
-                <p class="jhdp-promo-features"><?php esc_html_e( 'Watermark your images, password protect pages, hide your login URL, share magic login links, and lock down the REST API.', 'disabled-source-disabled-right-click-and-content-protection' ); ?></p>
+            <div class="jhdp-deal-body">
+                <p class="jhdp-deal-eyebrow"><?php esc_html_e( 'Black Friday Deal', 'disabled-source-disabled-right-click-and-content-protection' ); ?></p>
+                <h3 class="jhdp-deal-title"><?php esc_html_e( 'Unlock every Pro protection feature this Black Friday', 'disabled-source-disabled-right-click-and-content-protection' ); ?></h3>
+                <p class="jhdp-deal-features"><?php esc_html_e( 'Watermark your images, password protect pages, hide your login URL, share magic login links, and lock down the REST API.', 'disabled-source-disabled-right-click-and-content-protection' ); ?></p>
                 <?php $this->render_howto(); ?>
             </div>
-            <div class="jhdp-promo-actions">
+            <div class="jhdp-deal-actions">
                 <?php $this->render_coupon(); ?>
-                <a href="<?php echo esc_url( $this->upgrade_url() ); ?>" class="jhdp-promo-cta-alt"><?php $this->render_claim_label(); ?></a>
+                <a href="<?php echo esc_url( $this->upgrade_url() ); ?>" class="jhdp-deal-cta-alt"><?php $this->render_claim_label(); ?></a>
             </div>
         </div>
         <?php
