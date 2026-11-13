@@ -3,7 +3,7 @@ Contributors: jahidcse
 Tags: content protection, no right click, right click off, image protection, disable IP address and country
 Requires at least: 4.7
 Tested up to: 7.1
-Stable tag: 1.8.4
+Stable tag: 1.8.5
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -109,6 +109,16 @@ The plugin is called copy content protection. It is very easy to use and install
 * You can change the default login URL, helping protect your site from unauthorized login attempts.
 
 
+== External Services ==
+
+This plugin utilizes the Freemius SDK to handle opt-in telemetry, license activation, Pro upgrades, automatic security updates, and billing support.
+
+Data is only sent to Freemius if you opt in, or when you open the pricing page or buy, activate or update the Pro version. This can include your site URL, WordPress, PHP and plugin versions, and your admin name and email address.
+
+* **Service Link:** https://freemius.com
+* **Terms of Service:** https://freemius.com/terms/
+* **Privacy Policy:** https://freemius.com/privacy/
+
 == Installation ==
 
 1. Install Disabled Source, Disabled Right Click and Content Protection by uploading the `disabled-source-disabled-right-click-and-content-protection` directory to the `/wp-content/plugins/` directory.
@@ -156,6 +166,12 @@ No.
 8. Disable by role wise
 
 == Changelog ==
+
+= 1.8.5 =
+
+* Added: Compatibility with WooCommerce 11.3.0
+* Added: Compatibility with Elementor 4.4.0
+* Added: Readme Update
 
 = 1.8.4 =
 

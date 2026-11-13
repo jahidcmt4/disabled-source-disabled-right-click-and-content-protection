@@ -3,7 +3,7 @@
  * Plugin Name:       Disabled Source, Disabled Right Click and Content Protection
  * Plugin URI:        https://wordpress.org/plugins/disabled-source-disabled-right-click-and-content-protection/
  * Description:       Disabled Source(Ctrl+U), Disabled Right click, Disable F12 functional key, and Disable save the page(Ctrl+S) and Content Protection of your WordPress Website.
- * Version:           1.8.4
+ * Version:           1.8.5
  * Requires at least: 4.7
  * Tested up to: 7.1
  * Requires PHP:      5.3
@@ -24,7 +24,7 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 define( 'JH_URL', plugin_dir_url( __FILE__ ) );
 define( 'JH_PATH', plugin_dir_path( __FILE__ ) );
-define( 'JH_VERSION', '1.8.4' );
+define( 'JH_VERSION', '1.8.5' );
 
 // Init Hook
 add_action( 'init', 'jh_disabled_init_global_plugin' );
@@ -71,6 +71,17 @@ if ( file_exists( JH_PATH . 'includes/functions/functions.php' ) ) {
 
 if ( file_exists( JH_PATH . 'includes/functions/notice.php' ) ) {
     require_once JH_PATH . 'includes/functions/notice.php';
+}
+
+/**
+ * Seasonal promo notice (Black Friday)
+*/
+
+// Optional: never let a missing file break the plugin.
+if ( file_exists( JH_PATH . 'includes/functions/class-jhdp-promo-notice.php' ) ) {
+  require_once JH_PATH . 'includes/functions/class-jhdp-promo-notice.php';
+  add_action( 'plugins_loaded', array( 'JHDP_Promo_Notice', 'init' ) );
+  register_activation_hook( __FILE__, array( 'JHDP_Promo_Notice', 'on_activate' ) );
 }
 
 /**
